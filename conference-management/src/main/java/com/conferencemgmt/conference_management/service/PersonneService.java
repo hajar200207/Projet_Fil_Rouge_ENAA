@@ -6,14 +6,19 @@ import com.conferencemgmt.conference_management.model.Personne;
 import com.conferencemgmt.conference_management.repository.PersonneRepository;
 import com.conferencemgmt.conference_management.security.JwtAuth;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class PersonneService implements UserDetailsService {
@@ -25,6 +30,10 @@ public class PersonneService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private JwtAuth jwtAuth;
+    @Autowired
+    private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -85,5 +94,65 @@ public class PersonneService implements UserDetailsService {
             personneRepository.save(admin);
         }
     }
+    public void initiatePasswordReset(String email) {
+        Optional<Personne> personneOpt = personneRepository.findByEmail(email);
+        if (personneOpt.isPresent()) {
+            Personne personne = personneOpt.get();
+            String token = UUID.randomUUID().toString();
+            personne.setResetToken(token);
+            personne.setResetTokenExpiry(LocalDateTime.now().plusHours(1));
+            personneRepository.save(personne);
 
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(email);
+            message.setSubject("Password Reset Request");
+            message.setText("To reset your password, please use the following token: " + token);
+            mailSender.send(message);
+        }
+    }
+
+    // Validate reset token
+    public boolean validateResetToken(String email, String token) {
+        Optional<Personne> personneOpt = personneRepository.findByEmail(email);
+        if (personneOpt.isPresent()) {
+            Personne personne = personneOpt.get();
+            return token.equals(personne.getResetToken()) &&
+                    LocalDateTime.now().isBefore(personne.getResetTokenExpiry());
+        }
+        return false;
+    }
+
+    // Reset password
+    public boolean resetPasswordWithoutToken(String email, String newPassword) {
+        // Retrieve the Personne by email
+        Optional<Personne> personneOpt = personneRepository.findByEmail(email);
+        if (personneOpt.isEmpty()) {
+            return false; // Email not found
+        }
+
+        Personne personne = personneOpt.get();
+
+        String hashedPassword = passwordEncoder.encode(newPassword);
+        personne.setMotDePasse(hashedPassword); // Correct method to set the password
+
+        // Save the updated Personne
+        personneRepository.save(personne);
+        return true;
+    }
+
+
+    public ResponseEntity<String> sendPasswordResetEmail(String email) {
+        // Validate email existence
+        // Generate a reset token (this could be a JWT or another type of token)
+        // Send the reset email
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("Password Reset Request");
+        message.setText("To reset your password, please follow this link: [reset-link]");
+
+        javaMailSender.send(message);
+
+        return ResponseEntity.ok("Password reset email sent");
+    }
 }

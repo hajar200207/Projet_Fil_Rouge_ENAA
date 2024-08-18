@@ -2,6 +2,7 @@ package com.conferencemgmt.conference_management.controller;
 
 
 import com.conferencemgmt.conference_management.model.Personne;
+import com.conferencemgmt.conference_management.model.ResetPasswordRequest;
 import com.conferencemgmt.conference_management.security.JwtAuth;
 import com.conferencemgmt.conference_management.service.PersonneService;
 import io.jsonwebtoken.Claims;
@@ -70,4 +71,29 @@ private JwtAuth jwtAuth;
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestBody ResetPasswordRequest resetPasswordRequest) {
+        return personneService.sendPasswordResetEmail(resetPasswordRequest.getEmail());
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestParam String email,
+                                                @RequestParam String newPassword) {
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.badRequest().body("Email is required");
+        }
+
+        if (newPassword == null || newPassword.isEmpty()) {
+            return ResponseEntity.badRequest().body("New password is required");
+        }
+
+        // Call service to reset password
+        boolean success = personneService.resetPasswordWithoutToken(email, newPassword);
+        if (success) {
+            return ResponseEntity.ok("Password reset successfully");
+        }
+        return ResponseEntity.badRequest().body("Error resetting password");
+    }
+
 }
