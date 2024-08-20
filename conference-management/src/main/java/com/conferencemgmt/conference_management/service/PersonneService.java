@@ -111,7 +111,6 @@ public class PersonneService implements UserDetailsService {
         }
     }
 
-    // Validate reset token
     public boolean validateResetToken(String email, String token) {
         Optional<Personne> personneOpt = personneRepository.findByEmail(email);
         if (personneOpt.isPresent()) {
@@ -122,12 +121,10 @@ public class PersonneService implements UserDetailsService {
         return false;
     }
 
-    // Reset password
     public boolean resetPasswordWithoutToken(String email, String newPassword) {
-        // Retrieve the Personne by email
         Optional<Personne> personneOpt = personneRepository.findByEmail(email);
         if (personneOpt.isEmpty()) {
-            return false; // Email not found
+            return false;
         }
 
         Personne personne = personneOpt.get();
@@ -135,16 +132,12 @@ public class PersonneService implements UserDetailsService {
         String hashedPassword = passwordEncoder.encode(newPassword);
         personne.setMotDePasse(hashedPassword); // Correct method to set the password
 
-        // Save the updated Personne
         personneRepository.save(personne);
         return true;
     }
 
 
     public ResponseEntity<String> sendPasswordResetEmail(String email) {
-        // Validate email existence
-        // Generate a reset token (this could be a JWT or another type of token)
-        // Send the reset email
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);

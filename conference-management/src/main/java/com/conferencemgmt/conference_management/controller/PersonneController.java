@@ -88,7 +88,6 @@ private JwtAuth jwtAuth;
             return ResponseEntity.badRequest().body("New password is required");
         }
 
-        // Call service to reset password
         boolean success = personneService.resetPasswordWithoutToken(email, newPassword);
         if (success) {
             return ResponseEntity.ok("Password reset successfully");
