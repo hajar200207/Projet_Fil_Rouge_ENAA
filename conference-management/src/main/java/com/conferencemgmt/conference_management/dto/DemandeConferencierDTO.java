@@ -12,6 +12,8 @@ import java.time.LocalTime;
 @Setter
 public class DemandeConferencierDTO {
     private Long demandeId;
+    private  Long number_invite;
+
     private ConferenceSubject conferenceSubject;
     private String conferenceTitle;
     private String conferenceDescription;

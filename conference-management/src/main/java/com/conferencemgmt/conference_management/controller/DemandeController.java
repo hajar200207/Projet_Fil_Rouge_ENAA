@@ -33,6 +33,7 @@ public class DemandeController {
 
         Demande demande = new Demande();
         demande.setConferencier(conferencier);
+        demande.setNumber_invite(demandeDTO.getNumber_invite());
         demande.setConferenceSubject(demandeDTO.getConferenceSubject());
         demande.setConferenceTitle(demandeDTO.getConferenceTitle());
         demande.setConferenceDescription(demandeDTO.getConferenceDescription());

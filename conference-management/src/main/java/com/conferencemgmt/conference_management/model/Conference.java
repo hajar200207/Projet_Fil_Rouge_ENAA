@@ -24,7 +24,8 @@ public class Conference {
     private String imageUrl;
     @Column(name = "date_debut")
     private LocalDate dateDebut;
-
+    @Column(name = "number_invite")
+     private  Number number_invite;
     @Column(name = "date_fin")
     private LocalDate dateFin;
     @Enumerated(EnumType.STRING)

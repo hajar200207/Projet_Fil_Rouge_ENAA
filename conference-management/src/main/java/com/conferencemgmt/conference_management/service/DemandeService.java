@@ -22,15 +22,11 @@ public class DemandeService {
 @Autowired
 private ConferencierRepository conferencierRepository;
     public Demande createDemande(Demande demande) {
-        // Vérifier si un conferencier est présent dans la demande
         if (demande.getConferencier() != null) {
-            // Récupérer le conferencier par son ID
             Conferencier conferencier = conferencierRepository.findById(demande.getConferencier().getId())
                     .orElseThrow(() -> new RuntimeException("Conferencier not found"));
             demande.setConferencier(conferencier);
         }
-
-        // Enregistrer la demande
         return demandeRepository.save(demande);
     }
     public List<Demande> getAllDemandes() {
@@ -58,6 +54,7 @@ private ConferencierRepository conferencierRepository;
         demande.setStatus(demandeDetails.getStatus());
         demande.setAdminComments(demandeDetails.getAdminComments());
         demande.setSubmissionDate(demandeDetails.getSubmissionDate());
+        demande.setNumber_invite(demandeDetails.getNumber_invite());
 
         // Save the updated Demande
         Demande updatedDemande = demandeRepository.save(demande);
@@ -66,6 +63,7 @@ private ConferencierRepository conferencierRepository;
         DemandeDTO updatedDemandeDTO = new DemandeDTO(
                 updatedDemande.getId(),
                 updatedDemande.getConferencier().getId(),
+                updatedDemande.getNumber_invite(),
                 updatedDemande.getConferenceSubject(),
                 updatedDemande.getConferenceTitle(),
                 updatedDemande.getConferenceDescription(),
@@ -78,6 +76,7 @@ private ConferencierRepository conferencierRepository;
                 updatedDemande.getStatus(),
                 updatedDemande.getAdminComments(),
                 updatedDemande.getSubmissionDate()
+
         );
 
         return updatedDemandeDTO;

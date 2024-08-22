@@ -25,7 +25,8 @@ public class Demande {
     @Enumerated(EnumType.STRING)
     @Column(name = "conference_subject", nullable = false)
     private ConferenceSubject conferenceSubject;
-
+    @Column(name = "number_invite")
+    private  Long number_invite;
     @Column(name = "conference_title", nullable = false)
     private String conferenceTitle;
 
