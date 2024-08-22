@@ -1,4 +1,5 @@
 package com.conferencemgmt.conference_management.security;
+
 import com.conferencemgmt.conference_management.service.PersonneService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter;
@@ -32,8 +33,8 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
-                        .requestMatchers("/api/personnes/**").permitAll()
-
+                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")  // Only ADMIN role can manage conferences
+                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")  // ADMIN and CONFERENCIER roles can manage demandes
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
@@ -56,3 +57,4 @@ public class SecurityConfig {
         personneService.createAdminUserIfNotExist();
     }
 }
+

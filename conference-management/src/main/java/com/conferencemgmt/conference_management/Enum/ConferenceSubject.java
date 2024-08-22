@@ -27,5 +27,6 @@ public enum ConferenceSubject {
     PUBLIC_HEALTH,
     SOCIAL_SCIENCES,
     STATISTICS,
-    WATER
+    WATER,
+    TECHNOLOGY
 }

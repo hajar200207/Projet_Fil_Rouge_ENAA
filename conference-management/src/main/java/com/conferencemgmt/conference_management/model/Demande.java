@@ -9,19 +9,19 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
 @Getter
 @Setter
 @Entity
-@Table(name = "Demande")
+@Table(name = "demande")
 public class Demande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "conferencier_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "conferencier_id")
     private Conferencier conferencier;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "conference_subject", nullable = false)
     private ConferenceSubject conferenceSubject;
@@ -59,6 +59,4 @@ public class Demande {
 
     @Column(name = "submission_date", nullable = false)
     private LocalDate submissionDate;
-
-    // Additional fields can be added as needed
 }
