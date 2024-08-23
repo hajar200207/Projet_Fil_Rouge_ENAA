@@ -24,7 +24,7 @@ public class CommitOrganisation extends Personne {
     private List<Programme> programmes;
 
     @OneToMany(mappedBy = "commitOrganisation")
-    private List<Locaux> locaux;
+    private List<Locaux> locauxList;
 
     @OneToMany(mappedBy = "commitOrganisation")
     private List<Poster> posters;

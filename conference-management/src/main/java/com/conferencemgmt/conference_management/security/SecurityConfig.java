@@ -35,6 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
                         .requestMatchers("/api/conferences/**").hasRole("ADMIN")  // Only ADMIN role can manage conferences
                         .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")  // ADMIN and CONFERENCIER roles can manage demandes
+                        .requestMatchers("/api/locaux/**").hasAnyRole("COMMIT_ORGANISATION")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);

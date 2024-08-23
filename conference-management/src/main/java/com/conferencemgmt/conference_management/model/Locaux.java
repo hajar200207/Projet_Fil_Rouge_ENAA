@@ -18,7 +18,8 @@ public class Locaux {
     private TypeLocaux type;
 
     private String adresse;
+
     @ManyToOne
-    @JoinColumn(name = "commit_organisation_id", referencedColumnName = "id")
+    @JoinColumn(name = "commit_organisation_id")
     private CommitOrganisation commitOrganisation;
 }
