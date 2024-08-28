@@ -32,21 +32,21 @@ public class Conference {
     @Column(name = "subject")
     private ConferenceSubject subject;
     @ManyToOne
-    @JoinColumn(name = "conferencier_id", referencedColumnName = "id")
+    @JoinColumn
     private Conferencier conferencier;
 
     @OneToOne
-    @JoinColumn(name = "locaux_id", referencedColumnName = "id")
+    @JoinColumn
     private Locaux locaux;
 
-    @OneToMany(mappedBy = "conference")
+    @OneToMany
     private List<Slide> slides;
 
-    @OneToMany(mappedBy = "conference")
+    @OneToMany
     private List<Poster> posters;
-
-    @OneToMany(mappedBy = "conference")
-    private List<Programme> programmes;
+//
+//    @OneToMany
+//    private List<Programme> programmes;
     @ManyToMany
     @JoinTable(
             name = "conference_commitorganisation",

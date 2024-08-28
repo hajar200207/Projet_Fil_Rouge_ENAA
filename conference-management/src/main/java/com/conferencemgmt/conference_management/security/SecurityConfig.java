@@ -32,11 +32,13 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
-                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")  // Only ADMIN role can manage conferences
-                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")  // ADMIN and CONFERENCIER roles can manage demandes
-                        .requestMatchers("/api/locaux/**").hasAnyRole("COMMIT_ORGANISATION")
-                        .anyRequest().authenticated()
+//                        .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
+//                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")  // Only ADMIN role can manage conferences
+//                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")  // ADMIN and CONFERENCIER roles can manage demandes
+//                        .requestMatchers("/api/locaux/**").hasAnyRole("COMMIT_ORGANISATION")
+//                        .requestMatchers("/api/programmes/**").hasAuthority("COMMIT_ORGANISATION")
+
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 

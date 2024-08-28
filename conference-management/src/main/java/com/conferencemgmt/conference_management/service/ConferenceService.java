@@ -13,7 +13,10 @@ public class ConferenceService {
 
     @Autowired
     private ConferenceRepository conferenceRepository;
-
+    public Conference findById(Long id) {
+        return conferenceRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Conference not found"));
+    }
     public List<Conference> getAllConferences() {
         return conferenceRepository.findAll();
     }

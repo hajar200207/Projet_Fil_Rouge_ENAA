@@ -4,6 +4,7 @@ import com.conferencemgmt.conference_management.Enum.Role;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,9 +16,12 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
+@PrimaryKeyJoinColumn(name = "id")
+
+@JsonIgnoreProperties({"programmes", "locauxList", "posters"})
 @Table(name = "CommitOrganisation")
 public class CommitOrganisation extends Personne {
+
     private String fonction;
 
     @OneToMany(mappedBy = "commitOrganisation")
