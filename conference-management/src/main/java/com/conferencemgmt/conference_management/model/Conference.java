@@ -31,12 +31,13 @@ public class Conference {
     @Enumerated(EnumType.STRING)
     @Column(name = "subject")
     private ConferenceSubject subject;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "conferencier_id ")
     private Conferencier conferencier;
 
-    @OneToOne
-    @JoinColumn
+    @ManyToOne
+    @JoinColumn(name = "locaux_id")
     private Locaux locaux;
 
     @OneToMany

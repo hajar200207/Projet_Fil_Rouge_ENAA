@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -18,7 +20,8 @@ public class Locaux {
     private TypeLocaux type;
 
     private String adresse;
-
+    @OneToMany(mappedBy = "locaux")
+    private List<Conference> conferences;
     @ManyToOne
     @JoinColumn(name = "commit_organisation_id")
     private CommitOrganisation commitOrganisation;
