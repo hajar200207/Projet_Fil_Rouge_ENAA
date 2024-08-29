@@ -35,9 +35,7 @@ public class ConferenceService {
     }
 
     public Conference createConference(ConferenceCreateDTO conferenceCreateDTO) {
-        if (conferenceRepository.existsByNomAndDateDebut(conferenceCreateDTO.getNom(), conferenceCreateDTO.getDateDebut())) {
-            throw new RuntimeException("A conference with the same name and start date already exists");
-        }
+       
 
         Conference conference = new Conference();
         conference.setNom(conferenceCreateDTO.getNom());

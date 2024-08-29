@@ -2,7 +2,6 @@ package com.conferencemgmt.conference_management.service;
 
 import com.conferencemgmt.conference_management.dto.ProgrammeDTO;
 import com.conferencemgmt.conference_management.dto.ProgrammeInfoDTO;
-import com.conferencemgmt.conference_management.exception.ResourceNotFoundException;
 import com.conferencemgmt.conference_management.model.*;
 import com.conferencemgmt.conference_management.repository.CommitOrganisationRepository;
 import com.conferencemgmt.conference_management.repository.ConferenceRepository;
@@ -12,14 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class ProgrammeService {
 
-    @Autowired
-    private ConferenceRepository conferenceRepository;
 
     @Autowired
     private CommitOrganisationRepository commitOrganisationRepository;

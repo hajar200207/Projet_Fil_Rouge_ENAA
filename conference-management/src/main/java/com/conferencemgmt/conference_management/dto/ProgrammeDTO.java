@@ -20,7 +20,6 @@ public class ProgrammeDTO {
     private LocalTime heureDebut;
     private LocalTime heureFin;
     private String salle;
-//    private Long conferenceId;
     private Long commitOrganisationId;
     private Long conferencierId;
 
