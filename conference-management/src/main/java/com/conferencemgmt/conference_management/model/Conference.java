@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -40,21 +42,13 @@ public class Conference {
     @JoinColumn(name = "locaux_id")
     private Locaux locaux;
 
-    @OneToMany
-    private List<Slide> slides;
-
-    @OneToMany
-    private List<Poster> posters;
-//
-//    @OneToMany
-//    private List<Programme> programmes;
     @ManyToMany
     @JoinTable(
             name = "conference_commitorganisation",
             joinColumns = @JoinColumn(name = "conference_id"),
             inverseJoinColumns = @JoinColumn(name = "commitorganisation_id")
     )
-    private List<CommitOrganisation> commitOrganisations;
+    private Set<CommitOrganisation> commitOrganisations = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -62,9 +56,23 @@ public class Conference {
             joinColumns = @JoinColumn(name = "conference_id"),
             inverseJoinColumns = @JoinColumn(name = "invite_id")
     )
-    private List<Invite> invites;
-
+    private Set<Invite> invites = new HashSet<>();
     @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
+    @ManyToMany
+    private Set<Slide> slides = new HashSet<>();
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "conference_posters",
+            joinColumns = @JoinColumn(name = "conference_id"),
+            inverseJoinColumns = @JoinColumn(name = "poster_id")
+    )
+    private Set<Poster> posters = new HashSet<>();
+
+
+
+
 
 }

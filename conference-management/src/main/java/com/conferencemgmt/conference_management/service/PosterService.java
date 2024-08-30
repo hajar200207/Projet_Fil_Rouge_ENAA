@@ -72,4 +72,8 @@ public class PosterService {
     public void deletePoster(Long id) {
         posterRepository.deleteById(id);
     }
+
+    public List<Poster> getPostersByConferenceId(Long conferenceId) {
+        return posterRepository.findByConferenceId(conferenceId);
+    }
 }

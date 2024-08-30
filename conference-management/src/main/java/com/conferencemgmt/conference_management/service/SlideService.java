@@ -99,4 +99,8 @@ public class SlideService {
 
         return dto;
     }
+
+    public List<Slide> getSlidesByConferenceId(Long conferenceId) {
+        return  slideRepository.findByConferenceId(conferenceId);
+    }
 }

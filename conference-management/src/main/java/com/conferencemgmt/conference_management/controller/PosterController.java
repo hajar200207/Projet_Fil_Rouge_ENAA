@@ -46,4 +46,9 @@ public class PosterController {
         posterService.deletePoster(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/conference/{conferenceId}")
+    public ResponseEntity<List<Poster>> getPostersByConferenceId(@PathVariable Long conferenceId) {
+        List<Poster> posters = posterService.getPostersByConferenceId(conferenceId);
+        return ResponseEntity.ok(posters);
+    }
 }

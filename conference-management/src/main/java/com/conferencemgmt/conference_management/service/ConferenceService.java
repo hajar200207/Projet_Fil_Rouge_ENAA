@@ -1,14 +1,16 @@
 package com.conferencemgmt.conference_management.service;
 
 import com.conferencemgmt.conference_management.dto.*;
-import com.conferencemgmt.conference_management.exception.ResourceNotFoundException;
 import com.conferencemgmt.conference_management.model.*;
 import com.conferencemgmt.conference_management.repository.*;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -95,7 +97,9 @@ public class ConferenceService {
     public void deleteConference(Long id) {
         conferenceRepository.deleteById(id);
     }
+    @Transactional
     public Conference addConference(ConferencecreategDTO conferenceDTO) {
+
         Conference conference = new Conference();
 
         conference.setNom(conferenceDTO.getNom());
@@ -116,35 +120,31 @@ public class ConferenceService {
         locaux.ifPresent(conference::setLocaux);
 
         // Fetch and set CommitOrganisations
-        List<CommitOrganisation> commitOrganisations = conferenceDTO.getCommitOrganisationIds().stream()
-                .map(commitOrganisationRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .collect(Collectors.toList());
+        Set<CommitOrganisation> commitOrganisations = conferenceDTO.getCommitOrganisationIds().stream()
+                .map(id -> commitOrganisationRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("CommitOrganisation not found with id: " + id)))
+                .collect(Collectors.toSet());
         conference.setCommitOrganisations(commitOrganisations);
 
         // Fetch and set Invites
-        List<Invite> invites = conferenceDTO.getInviteIds().stream()
-                .map(inviteRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .collect(Collectors.toList());
+        Set<Invite> invites = conferenceDTO.getInviteIds().stream()
+                .map(id -> inviteRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Invite not found with id: " + id)))
+                .collect(Collectors.toSet());
         conference.setInvites(invites);
 
         // Fetch and set Slides
-        List<Slide> slides = conferenceDTO.getSlideIds().stream()
-                .map(slideRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .collect(Collectors.toList());
+        Set<Slide> slides = conferenceDTO.getSlideIds().stream()
+                .map(id -> slideRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Slide not found with id: " + id)))
+                .collect(Collectors.toSet());
         conference.setSlides(slides);
 
         // Fetch and set Posters
-        List<Poster> posters = conferenceDTO.getPosterIds().stream()
-                .map(posterRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .collect(Collectors.toList());
+        Set<Poster> posters = conferenceDTO.getPosterIds().stream()
+                .map(id -> posterRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Poster not found with id: " + id)))
+                .collect(Collectors.toSet());
         conference.setPosters(posters);
 
         return conferenceRepository.save(conference);
@@ -186,4 +186,11 @@ public class ConferenceService {
         return conferenceDetailDTO;
     }
 
+    public List<Slide> getSlidesByConferenceId(Long id) {
+        return conferenceRepository.findSlidesByConferenceId(id);
+    }
+
+    public List<Poster> getPostersByConferenceId(Long id) {
+        return conferenceRepository.findPostersByConferenceId(id);
+    }
 }

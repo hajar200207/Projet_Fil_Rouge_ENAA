@@ -118,6 +118,7 @@ import com.conferencemgmt.conference_management.service.ProgrammeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -137,37 +138,51 @@ public class ProgrammeController {
 
     @Autowired
     private CommitOrganisationRepository commitOrganisationRepository;
-
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
     @PostMapping
     public ResponseEntity<Programme> createProgramme(@RequestBody ProgrammeDTO programmeDTO) {
         Programme programme = programmeService.createProgramme(programmeDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(programme);
     }
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
+
     @GetMapping
     public ResponseEntity<List<ProgrammeDTO>> getAllProgrammes() {
         List<ProgrammeDTO> programmes = programmeService.getAllProgrammes();
         return ResponseEntity.ok(programmes);
     }
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
 
     @GetMapping("/{id}")
     public ResponseEntity<ProgrammeDTO> getProgrammeById(@PathVariable Long id) {
         ProgrammeDTO programmeDTO = programmeService.getProgrammeById(id);
         return ResponseEntity.ok(programmeDTO);
     }
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
 
     @PutMapping("/{id}")
     public ResponseEntity<ProgrammeDTO> updateProgramme(@PathVariable Long id, @RequestBody ProgrammeDTO programmeDTO) {
         ProgrammeDTO updatedProgramme = programmeService.updateProgramme(id, programmeDTO);
         return ResponseEntity.ok(updatedProgramme);
     }
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProgramme(@PathVariable Long id) {
         programmeService.deleteProgramme(id);
         return ResponseEntity.noContent().build();
     }
+    @PreAuthorize("hasRole('ADMIN') or hasRole('COMMIT_ORGANISATION')")
+
     @GetMapping("all/{id}")
     public ProgrammeInfoDTO getProgrammeInfo(@PathVariable Long id) {
         return programmeService.getProgrammeInfo(id);
     }
+    @PreAuthorize("hasRole('CONFERENCIER')")
+    @GetMapping("/conferencier/{conferencierId}")
+    public ResponseEntity<List<ProgrammeDTO>> getProgrammesByConferencier(@PathVariable Long conferencierId) {
+        List<ProgrammeDTO> programmes = programmeService.getProgrammesByConferencierId(conferencierId);
+        return ResponseEntity.ok(programmes);
+    }
+
 }

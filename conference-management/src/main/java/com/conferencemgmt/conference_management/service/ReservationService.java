@@ -91,4 +91,20 @@ public class ReservationService {
                 .map(this::convertToReservationInfoDTO)
                 .collect(Collectors.toList());
     }
+    public List<ReservationInfoDTO> getReservationsByInvite(Long inviteId) {
+        return reservationRepository.findByInviteId(inviteId).stream()
+                .map(reservation -> {
+                    ReservationInfoDTO dto = new ReservationInfoDTO();
+                    dto.setReservationId(reservation.getId());
+                    dto.setInviteId(reservation.getInvite().getId());
+                    dto.setConferenceId(reservation.getConference().getId());
+                    dto.setDateReservation(reservation.getDateReservation());
+                    dto.setStatus(String.valueOf(reservation.getStatus()));
+                    dto.setCountryOfResidence(String.valueOf(reservation.getCountryOfResidence()));
+                    dto.setCityOfResidence(String.valueOf(reservation.getCityOfResidence()));
+                    dto.setRegistrationType(String.valueOf(reservation.getRegistrationType()));
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 }

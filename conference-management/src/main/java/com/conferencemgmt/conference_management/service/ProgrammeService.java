@@ -138,4 +138,13 @@ public class ProgrammeService {
 
         return dto;
     }
+    public List<ProgrammeDTO> getProgrammesByConferencierId(Long conferencierId) {
+        Conferencier conferencier = conferencierRepository.findById(conferencierId)
+                .orElseThrow(() -> new RuntimeException("Conferencier not found"));
+
+        List<Programme> programmes = programmeRepository.findByConferencier(conferencier);
+        return programmes.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
 }

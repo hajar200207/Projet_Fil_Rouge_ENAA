@@ -46,4 +46,9 @@ public class SlideController {
         slideService.deleteSlide(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/conference/{conferenceId}")
+    public ResponseEntity<List<Slide>> getSlidesByConferenceId(@PathVariable Long conferenceId) {
+        List<Slide> slides = slideService.getSlidesByConferenceId(conferenceId);
+        return ResponseEntity.ok(slides);
+    }
 }

@@ -32,13 +32,32 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
-//                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")  // Only ADMIN role can manage conferences
-//                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")  // ADMIN and CONFERENCIER roles can manage demandes
+                        .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
+//                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")
+//                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")
 //                        .requestMatchers("/api/locaux/**").hasAnyRole("COMMIT_ORGANISATION")
 //                        .requestMatchers("/api/programmes/**").hasAuthority("COMMIT_ORGANISATION")
+                        .requestMatchers("/api/conferences").hasRole("ADMIN")
+                                .requestMatchers("/api/conferences/{id}/posters").hasRole("CONFERENCIER")
+                                .requestMatchers("/api/conferences/{id}/slides").hasRole("CONFERENCIER")
 
-                        .anyRequest().permitAll()
+                                .requestMatchers("/api/conferences/{id}/details").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/conferences/add").hasRole("ADMIN")
+                                .requestMatchers("/api/articles").hasAnyRole("ADMIN", "COMMIT_SCIENTIFIQUE")
+                                .requestMatchers("/api/articles/**").hasAnyRole("ADMIN", "COMMIT_SCIENTIFIQUE")
+                                .requestMatchers("/api/articles").hasRole("CONFERENCIER")
+                                .requestMatchers("/api/articles/**").hasRole("CONFERENCIER")
+                                .requestMatchers("/api/demandes").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/demandes/conferencier/**").hasRole("CONFERENCIER")
+                                .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/locaux/**").hasAnyRole("ADMIN", "COMMIT_ORGANISATION")
+                                .requestMatchers("/api/posters/conference/**").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/slides/conference/**").hasAnyRole("ADMIN", "CONFERENCIER")
+                                .requestMatchers("/api/posters/**").hasAnyRole("ADMIN", "COMMIT_ORGANISATION")
+                                .requestMatchers("/api/slides/**").hasAnyRole("ADMIN", "COMMIT_ORGANISATION")
+
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
