@@ -1,7 +1,9 @@
 package com.conferencemgmt.conference_management.controller;
 
 import com.conferencemgmt.conference_management.dto.ConferenceCreateDTO;
+import com.conferencemgmt.conference_management.dto.ConferenceDetailDTO;
 import com.conferencemgmt.conference_management.dto.ConferenceUpdateDTO;
+import com.conferencemgmt.conference_management.dto.ConferencecreategDTO;
 import com.conferencemgmt.conference_management.model.Conference;
 import com.conferencemgmt.conference_management.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +52,21 @@ public class ConferenceController {
     public ResponseEntity<Void> deleteConference(@PathVariable Long id) {
         conferenceService.deleteConference(id);
         return ResponseEntity.noContent().build();
+    }
+    @PostMapping("/add")
+    public ResponseEntity<Conference> addConference(@RequestBody ConferencecreategDTO conferencecreategDTO) {
+        Conference createdConference = conferenceService.addConference(conferencecreategDTO);
+        return ResponseEntity.ok(createdConference);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Conference>> getAllinfoConferences() {
+        List<Conference> conferences = conferenceService.getAllinfoConferences();
+        return ResponseEntity.ok(conferences);
+    }
+    @GetMapping("/{id}/details")
+    public ResponseEntity<ConferenceDetailDTO> getConferenceDetails(@PathVariable Long id) {
+        ConferenceDetailDTO conferenceDetailDTO = conferenceService.getConferenceDetails(id);
+        return ResponseEntity.ok(conferenceDetailDTO);
     }
 }

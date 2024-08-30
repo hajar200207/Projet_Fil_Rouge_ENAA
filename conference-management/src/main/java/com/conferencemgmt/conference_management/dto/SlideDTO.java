@@ -19,4 +19,10 @@ public class SlideDTO {
     private String documentUrl;
     private Long authorId;
     private Long conferenceId;
+
+    public SlideDTO(Long id, String title, String abstractContent) {
+        this.id = id;
+        this.title = title;
+        this.abstractContent = abstractContent;
+    }
 }

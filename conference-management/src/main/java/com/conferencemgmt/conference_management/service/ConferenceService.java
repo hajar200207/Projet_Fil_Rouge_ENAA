@@ -1,8 +1,7 @@
 package com.conferencemgmt.conference_management.service;
 
-import com.conferencemgmt.conference_management.dto.ConferenceCreateDTO;
-import com.conferencemgmt.conference_management.dto.ConferenceUpdateDTO;
-import com.conferencemgmt.conference_management.dto.ConferencecreategDTO;
+import com.conferencemgmt.conference_management.dto.*;
+import com.conferencemgmt.conference_management.exception.ResourceNotFoundException;
 import com.conferencemgmt.conference_management.model.*;
 import com.conferencemgmt.conference_management.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -154,4 +153,37 @@ public class ConferenceService {
     public List<Conference> getAllinfoConferences() {
         return conferenceRepository.findAll();
     }
+    public ConferenceDetailDTO getConferenceDetails(Long conferenceId) {
+        Conference conference = conferenceRepository.findById(conferenceId)
+                .orElseThrow();
+
+        List<SlideDTO> slides = slideRepository.findByConferenceId(conferenceId)
+                .stream()
+                .map(slide -> new SlideDTO(slide.getId(), slide.getTitle(), slide.getAbstractContent()))
+                .collect(Collectors.toList());
+
+        List<InviteDTO> invites = inviteRepository.findByConferencesId(conferenceId)
+                .stream()
+                .map(invite -> new InviteDTO(invite.getId(), invite.getNom(), invite.getEmail()))
+                .collect(Collectors.toList());
+
+        // Mapping for posters, commitOrganisations, etc.
+
+        ConferenceDetailDTO conferenceDetailDTO = new ConferenceDetailDTO();
+        conferenceDetailDTO.setId(conference.getId());
+        conferenceDetailDTO.setNom(conference.getNom());
+        conferenceDetailDTO.setDescription(conference.getDescription());
+        conferenceDetailDTO.setTheme(conference.getTheme());
+        conferenceDetailDTO.setImageUrl(conference.getImageUrl());
+        conferenceDetailDTO.setDateDebut(conference.getDateDebut());
+        conferenceDetailDTO.setDateFin(conference.getDateFin());
+        conferenceDetailDTO.setSubject(conference.getSubject());
+        conferenceDetailDTO.setConferencierId(conference.getConferencier().getId());
+        conferenceDetailDTO.setLocauxId(conference.getLocaux().getId());
+        conferenceDetailDTO.setSlides(slides);
+        conferenceDetailDTO.setInvites(invites);
+        // Set other details
+        return conferenceDetailDTO;
+    }
+
 }
