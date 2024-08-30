@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "Invite")
+@Table(name = "invite")
 public class Invite extends Personne {
     private String organisation;
     @ManyToMany(mappedBy = "invites")
