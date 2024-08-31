@@ -1,0 +1,25 @@
+/* src/app/auth/register-invite/register-invite.component.css */
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+}

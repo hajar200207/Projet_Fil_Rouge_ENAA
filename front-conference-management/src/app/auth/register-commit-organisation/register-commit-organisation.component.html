@@ -1,0 +1,31 @@
+<p>register-commit-organisation works!</p>
+<p>register-commit-organisation works!</p>
+
+<h2>Inscription Commit Organisation</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Nom:</label>
+    <input id="nom" formControlName="nom" required>
+  </div>
+  <div>
+    <label for="prenom">Prénom:</label>
+    <input id="prenom" formControlName="prenom" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" required>
+  </div>
+  <div>
+    <label for="motDePasse">Mot de Passe:</label>
+    <input id="motDePasse" formControlName="motDePasse" type="password" required>
+  </div>
+  <div>
+    <label for="fonction">Fonction:</label>
+    <input id="fonction" formControlName="fonction" required>
+  </div>
+
+  <!-- Hidden field for the type attribute -->
+  <input type="hidden" formControlName="type" value="commitOrganisation">
+
+  <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
+</form>
