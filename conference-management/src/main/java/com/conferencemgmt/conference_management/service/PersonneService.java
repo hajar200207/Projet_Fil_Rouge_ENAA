@@ -138,14 +138,18 @@ public class PersonneService implements UserDetailsService {
 
 
     public ResponseEntity<String> sendPasswordResetEmail(String email) {
-
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Password Reset Request");
-        message.setText("To reset your password, please follow this link: [reset-link]");
+
+        // Définir le nom d'affichage ici
+        message.setFrom("welcom conference-management <ouadihajar2002@gmail.com>");
+
+        message.setText("To reset your password, please follow this link: [http://localhost:4200/reset-password]");
 
         javaMailSender.send(message);
 
         return ResponseEntity.ok("Password reset email sent");
     }
+
 }

@@ -33,6 +33,8 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/personnes/register", "/api/personnes/login").permitAll()
+                                .requestMatchers("/api/personnes/**").permitAll()
+
 //                        .requestMatchers("/api/conferences/**").hasRole("ADMIN")
 //                        .requestMatchers("/api/demandes/**").hasAnyRole("ADMIN", "CONFERENCIER")
 //                        .requestMatchers("/api/locaux/**").hasAnyRole("COMMIT_ORGANISATION")
