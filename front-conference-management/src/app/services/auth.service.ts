@@ -65,4 +65,15 @@ export class AuthService {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.role;
   }
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/forgot-password`, { email });
+  }
+
+  resetPassword(email: string, newPassword: string): Observable<any> {
+    const params = new HttpParams()
+      .set('email', email)
+      .set('newPassword', newPassword); // Ensure both parameters are set
+    return this.http.post(`${this.baseUrl}/reset-password`, {}, { params });
+  }
+
 }

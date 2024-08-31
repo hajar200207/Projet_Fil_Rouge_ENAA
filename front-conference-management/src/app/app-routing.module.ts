@@ -14,6 +14,8 @@ import {
 } from "./commit-organisation-dashboard/commit-organisation-dashboard.component";
 import {InviteDashboardComponent} from "./invite-dashboard/invite-dashboard.component";
 import {InviteGuard} from "./services/InviteGuard";
+import {ForgotPasswordComponent} from "./auth/forgot-password/forgot-password.component";
+import {ResetPasswordComponent} from "./auth/reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'commit-organisation-dashboard', component: CommitOrganisationDashboardComponent, canActivate: [CommiteOrganisationGuard] },
   { path: 'commit-scientifique-dashboard', component: CommitScientifiqueDashboardComponent, canActivate: [CommiteScientifiqueGuard] }, // Consistent naming
   { path: 'invite-dashboard', component: InviteDashboardComponent, canActivate: [InviteGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: '**', redirectTo: '/auth/login' }
 ];
 

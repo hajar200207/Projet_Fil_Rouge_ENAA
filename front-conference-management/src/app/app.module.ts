@@ -10,6 +10,9 @@ import { ConferencierDashboardComponent } from './conferencier-dashboard/confere
 import { CommitOrganisationDashboardComponent } from './commit-organisation-dashboard/commit-organisation-dashboard.component';
 import { CommitScientifiqueDashboardComponent } from './commit-scientifique-dashboard/commit-scientifique-dashboard.component';
 import { InviteDashboardComponent } from './invite-dashboard/invite-dashboard.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { InviteDashboardComponent } from './invite-dashboard/invite-dashboard.co
     ConferencierDashboardComponent,
     CommitOrganisationDashboardComponent,
     CommitScientifiqueDashboardComponent,
-    InviteDashboardComponent
+    InviteDashboardComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],
