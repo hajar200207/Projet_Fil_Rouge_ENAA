@@ -16,6 +16,9 @@ import {InviteDashboardComponent} from "./invite-dashboard/invite-dashboard.comp
 import {InviteGuard} from "./services/InviteGuard";
 import {ForgotPasswordComponent} from "./auth/forgot-password/forgot-password.component";
 import {ResetPasswordComponent} from "./auth/reset-password/reset-password.component";
+import {DemandeListComponent} from "./Demandes/demande-list/demande-list.component";
+import {DemandeFormComponent} from "./Demandes/demande-form/demande-form.component";
+import {DemandeDetailComponent} from "./Demandes/demande-detail/demande-detail.component";
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
@@ -27,6 +30,11 @@ const routes: Routes = [
   { path: 'invite-dashboard', component: InviteDashboardComponent, canActivate: [InviteGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'demandes', component: DemandeListComponent },
+  { path: 'demandes/new', component: DemandeFormComponent },
+  { path: 'demandes/:id', component: DemandeDetailComponent },
+  { path: 'demandes/:id/edit', component: DemandeFormComponent },
+
   { path: '**', redirectTo: '/auth/login' }
 ];
 

@@ -12,7 +12,10 @@ import { CommitScientifiqueDashboardComponent } from './commit-scientifique-dash
 import { InviteDashboardComponent } from './invite-dashboard/invite-dashboard.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { DemandeListComponent } from './Demandes/demande-list/demande-list.component';
+import { DemandeFormComponent } from './Demandes/demande-form/demande-form.component';
+import { DemandeDetailComponent } from './Demandes/demande-detail/demande-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import {FormsModule} from "@angular/forms";
     CommitScientifiqueDashboardComponent,
     InviteDashboardComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DemandeListComponent,
+    DemandeDetailComponent,
+    DemandeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,7 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],

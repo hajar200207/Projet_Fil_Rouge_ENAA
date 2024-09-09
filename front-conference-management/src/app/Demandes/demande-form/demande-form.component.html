@@ -1,0 +1,106 @@
+<div class="demande-form">
+  <h2 class="title">
+    <i class="fas fa-{{ isEditing ? 'edit' : 'plus-circle' }}"></i>
+    {{ isEditing ? 'Edit' : 'Add' }} Demande
+  </h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="demandeForm" class="form">
+
+    <div class="form-group">
+      <label for="conferenceTitle"><i class="fas fa-tag"></i> Conference Title:</label>
+      <input id="conferenceTitle" formControlName="conferenceTitle" required />
+      <div *ngIf="demandeForm.get('conferenceTitle')?.invalid && (demandeForm.get('conferenceTitle')?.dirty || demandeForm.get('conferenceTitle')?.touched)">
+        <small *ngIf="demandeForm.get('conferenceTitle')?.errors?.['required']">Conference Title is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="conferenceSubject"><i class="fas fa-cube"></i> Conference Subject:</label>
+      <input id="conferenceSubject" formControlName="conferenceSubject" required />
+      <div *ngIf="demandeForm.get('conferenceSubject')?.invalid && (demandeForm.get('conferenceSubject')?.dirty || demandeForm.get('conferenceSubject')?.touched)">
+        <small *ngIf="demandeForm.get('conferenceSubject')?.errors?.['required']">Conference Subject is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="number_invite"><i class="fas fa-users"></i> Number of Invites:</label>
+      <input id="number_invite" type="number" formControlName="number_invite" required />
+      <div *ngIf="demandeForm.get('number_invite')?.invalid && (demandeForm.get('number_invite')?.dirty || demandeForm.get('number_invite')?.touched)">
+        <small *ngIf="demandeForm.get('number_invite')?.errors?.['required']">Number of Invites is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="proposedDate"><i class="fas fa-calendar"></i> Proposed Date:</label>
+      <input id="proposedDate" type="date" formControlName="proposedDate" required />
+      <div *ngIf="demandeForm.get('proposedDate')?.invalid && (demandeForm.get('proposedDate')?.dirty || demandeForm.get('proposedDate')?.touched)">
+        <small *ngIf="demandeForm.get('proposedDate')?.errors?.['required']">Proposed Date is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="proposedStartTime"><i class="fas fa-clock"></i> Proposed Start Time:</label>
+      <input id="proposedStartTime" type="time" formControlName="proposedStartTime" required />
+      <div *ngIf="demandeForm.get('proposedStartTime')?.invalid && (demandeForm.get('proposedStartTime')?.dirty || demandeForm.get('proposedStartTime')?.touched)">
+        <small *ngIf="demandeForm.get('proposedStartTime')?.errors?.['required']">Proposed Start Time is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="proposedEndTime"><i class="fas fa-clock"></i> Proposed End Time:</label>
+      <input id="proposedEndTime" type="time" formControlName="proposedEndTime" required />
+      <div *ngIf="demandeForm.get('proposedEndTime')?.invalid && (demandeForm.get('proposedEndTime')?.dirty || demandeForm.get('proposedEndTime')?.touched)">
+        <small *ngIf="demandeForm.get('proposedEndTime')?.errors?.['required']">Proposed End Time is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+      <input id="location" formControlName="location" required />
+      <div *ngIf="demandeForm.get('location')?.invalid && (demandeForm.get('location')?.dirty || demandeForm.get('location')?.touched)">
+        <small *ngIf="demandeForm.get('location')?.errors?.['required']">Location is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="durationInMinutes"><i class="fas fa-hourglass-half"></i> Duration (in minutes):</label>
+      <input id="durationInMinutes" type="number" formControlName="durationInMinutes" required />
+      <div *ngIf="demandeForm.get('durationInMinutes')?.invalid && (demandeForm.get('durationInMinutes')?.dirty || demandeForm.get('durationInMinutes')?.touched)">
+        <small *ngIf="demandeForm.get('durationInMinutes')?.errors?.['required']">Duration is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="expectedAttendees"><i class="fas fa-users"></i> Expected Attendees:</label>
+      <input id="expectedAttendees" type="number" formControlName="expectedAttendees" required />
+      <div *ngIf="demandeForm.get('expectedAttendees')?.invalid && (demandeForm.get('expectedAttendees')?.dirty || demandeForm.get('expectedAttendees')?.touched)">
+        <small *ngIf="demandeForm.get('expectedAttendees')?.errors?.['required']">Expected Attendees is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status"><i class="fas fa-info-circle"></i> Status:</label>
+      <select id="status" formControlName="status" required>
+        <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+      </select>
+      <div *ngIf="demandeForm.get('status')?.invalid && (demandeForm.get('status')?.dirty || demandeForm.get('status')?.touched)">
+        <small *ngIf="demandeForm.get('status')?.errors?.['required']">Status is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adminComments"><i class="fas fa-comments"></i> Admin Comments:</label>
+      <textarea id="adminComments" formControlName="adminComments"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="submissionDate"><i class="fas fa-calendar-day"></i> Submission Date:</label>
+      <input id="submissionDate" type="date" formControlName="submissionDate" />
+    </div>
+    <input type="number" formControlName="conferencierId" />
+
+    <button type="submit" class="submit-btn">
+      <i class="fas fa-{{ isEditing ? 'save' : 'plus' }}"></i>
+      {{ isEditing ? 'Update' : 'Add' }}
+    </button>
+  </form>
+</div>

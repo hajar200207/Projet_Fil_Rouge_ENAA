@@ -10,6 +10,11 @@ interface RegisterPayload {
   motDePasse: string;
 
 }
+interface LoginResponse {
+  token: string;
+  role: string;
+  conferencierId?: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +60,8 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('conferencierId');
+
   }
   getUserRole(): string {
     const token = localStorage.getItem('token');
@@ -75,5 +82,14 @@ export class AuthService {
       .set('newPassword', newPassword); // Ensure both parameters are set
     return this.http.post(`${this.baseUrl}/reset-password`, {}, { params });
   }
+  setConferencierId(conferencierId: number): void {
+    localStorage.setItem('conferencierId', conferencierId.toString());
+  }
+
+  getConferencierId(): number | null {
+    const id = localStorage.getItem('conferencierId');
+    return id ? +id : null;
+  }
+
 
 }
