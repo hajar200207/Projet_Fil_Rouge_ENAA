@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.channels.FileChannel;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -130,7 +131,7 @@ public class PersonneService implements UserDetailsService {
         Personne personne = personneOpt.get();
 
         String hashedPassword = passwordEncoder.encode(newPassword);
-        personne.setMotDePasse(hashedPassword); // Correct method to set the password
+        personne.setMotDePasse(hashedPassword);
 
         personneRepository.save(personne);
         return true;
@@ -142,7 +143,6 @@ public class PersonneService implements UserDetailsService {
         message.setTo(email);
         message.setSubject("Password Reset Request");
 
-        // Définir le nom d'affichage ici
         message.setFrom("welcom conference-management <ouadihajar2002@gmail.com>");
 
         message.setText("To reset your password, please follow this link: [http://localhost:4200/reset-password]");
@@ -150,6 +150,10 @@ public class PersonneService implements UserDetailsService {
         javaMailSender.send(message);
 
         return ResponseEntity.ok("Password reset email sent");
+    }
+
+    public Optional<Personne> getPersonneById(Long id) {
+        return personneRepository.findById(id);
     }
 
 }

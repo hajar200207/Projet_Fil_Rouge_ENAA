@@ -95,5 +95,11 @@ private JwtAuth jwtAuth;
         }
         return ResponseEntity.badRequest().body("Error resetting password");
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Personne> getPersonneById(@PathVariable Long id) {
+        return personneService.getPersonneById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
 }
