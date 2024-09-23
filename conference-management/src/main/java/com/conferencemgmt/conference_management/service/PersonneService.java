@@ -2,7 +2,9 @@ package com.conferencemgmt.conference_management.service;
 
 
 import com.conferencemgmt.conference_management.model.Admin;
+import com.conferencemgmt.conference_management.model.Conferencier;
 import com.conferencemgmt.conference_management.model.Personne;
+import com.conferencemgmt.conference_management.repository.ConferencierRepository;
 import com.conferencemgmt.conference_management.repository.PersonneRepository;
 import com.conferencemgmt.conference_management.security.JwtAuth;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,8 @@ public class PersonneService implements UserDetailsService {
     private JavaMailSender mailSender;
     @Autowired
     private JavaMailSender javaMailSender;
+    @Autowired
+    private ConferencierRepository conferencierRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -156,4 +160,7 @@ public class PersonneService implements UserDetailsService {
         return personneRepository.findById(id);
     }
 
+    public Optional<Conferencier> getConferencierById(Long id) {
+        return conferencierRepository.findById(id);
+    }
 }

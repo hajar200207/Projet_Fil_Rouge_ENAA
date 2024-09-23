@@ -1,6 +1,7 @@
 package com.conferencemgmt.conference_management.controller;
 
 
+import com.conferencemgmt.conference_management.model.Conferencier;
 import com.conferencemgmt.conference_management.model.Personne;
 import com.conferencemgmt.conference_management.model.ResetPasswordRequest;
 import com.conferencemgmt.conference_management.security.JwtAuth;
@@ -15,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -34,6 +36,7 @@ private JwtAuth jwtAuth;
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestParam String email, @RequestParam String password) {
+
         return personneService.login(email, password)
                 .map(token -> {
                     // Extract the role from the token
@@ -45,6 +48,7 @@ private JwtAuth jwtAuth;
                     Map<String, Object> response = new HashMap<>();
                     response.put("token", token);
                     response.put("role", claims.get("role"));
+                    response.put("conferencierId", claims.get("conferencierId")); // Make sure conferencierId is set in the claims
 
                     return ResponseEntity.ok(response);
                 })
@@ -101,5 +105,10 @@ private JwtAuth jwtAuth;
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
+    @GetMapping("/conferenciers/{conferencierId}")
+    public ResponseEntity<Conferencier> getConferencierById(@PathVariable Long conferencierId) {
+        Optional<Conferencier> conferencier = personneService.getConferencierById(conferencierId);
+        return conferencier.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

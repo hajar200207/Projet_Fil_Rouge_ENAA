@@ -22,7 +22,10 @@ public class JwtAuth {
 
         return Jwts.builder()
                 .setSubject(personne.getUsername())
-                .claim("role", personne.getRole().name()) // Ensure this line is present
+                .claim("role", personne.getRole().name())
+                // Ensure this line is present
+                .claim("conferencierId", personne.getId()) // Add this line to include conferencierId
+
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiration
                 .signWith(key, SignatureAlgorithm.HS256)
