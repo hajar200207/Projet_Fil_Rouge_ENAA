@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0ed578-e736-45c6-8cde-1b8fd55b304f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Projet_Fil_Rouge_ENAA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/models/Conferencier.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/MailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/MailConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/PersonneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/PersonneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +27,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -32,6 +44,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -51,10 +64,11 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ConferenceManagementApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Projet_Fil_Rouge_ENAA",
+    "last_opened_file_path": "C:/Users/Hajar/Desktop/Projet_Fil_Rouge_ENAA",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,7 +78,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\Hajar\\Desktop\\Projet_Fil_Rouge_ENAA\\front-conference-management\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -86,8 +100,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -104,6 +118,7 @@
       <workItem from="1724944236869" duration="19704000" />
       <workItem from="1725033896742" duration="38000" />
       <workItem from="1725033981322" duration="7652000" />
+      <workItem from="1726948961101" duration="13372000" />
     </task>
     <servers />
   </component>
