@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
           console.log('Login successful', response);
           this.authService.setToken(response.token);
           this.redirectUser(response.role);
+          this.authService.setConferencierId(response.conferencierId);
+
         },
         error => {
           console.error('Login failed', error);

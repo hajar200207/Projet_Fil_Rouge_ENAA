@@ -1,7 +1,8 @@
 // src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, tap} from 'rxjs';
+import {Conferencier} from "../models/Conferencier.model";
 
 interface RegisterPayload {
   nom: string;
@@ -42,9 +43,30 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, data);
   }
   login(email: string, password: string): Observable<any> {
-    const params = new HttpParams().set('email', email).set('password', password);
-    return this.http.post(`${this.baseUrl}/login`, {}, { params });
+    const params = new HttpParams()
+      .set('email', email)
+      .set('password', password);
+
+    return this.http.post(`${this.baseUrl}/login`, {}, { params }).pipe(
+      tap((response: any) => {
+        this.setToken(response.token);
+        this.setConferencierId(response.conferencierId);
+      })
+    );
   }
+
+
+
+
+  setConferencierId(conferencierId: string): void {
+    localStorage.setItem('conferencierId', conferencierId);
+  }
+
+  getConferencierId(): string | null {
+    return localStorage.getItem('conferencierId');
+  }
+
+
 
   setToken(token: string): void {
     localStorage.setItem('authToken', token);
@@ -82,13 +104,9 @@ export class AuthService {
       .set('newPassword', newPassword); // Ensure both parameters are set
     return this.http.post(`${this.baseUrl}/reset-password`, {}, { params });
   }
-  setConferencierId(conferencierId: number): void {
-    localStorage.setItem('conferencierId', conferencierId.toString());
-  }
 
-  getConferencierId(): number | null {
-    const id = localStorage.getItem('conferencierId');
-    return id ? +id : null;
+  getConferencierDetails(conferencierId: number): Observable<Conferencier> {
+    return this.http.get<Conferencier>(`${this.baseUrl}/conferenciers/${conferencierId}`);
   }
 
 

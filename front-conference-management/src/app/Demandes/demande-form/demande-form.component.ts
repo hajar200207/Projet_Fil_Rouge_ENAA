@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemandeService } from '../../services/demande.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,6 +13,7 @@ export class DemandeFormComponent implements OnInit {
   demandeForm: FormGroup;
   isEditing = false;
   statuses = ['PENDING', 'ACCEPTED', 'REFUSED'];
+  @Input() conferencierId!: number;
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +25,7 @@ export class DemandeFormComponent implements OnInit {
     this.demandeForm = this.fb.group({
       conferenceTitle: ['', Validators.required],
       conferenceSubject: ['', Validators.required],
+      conferenceDescription: ['', Validators.required], // Add this line
       number_invite: [0, Validators.required],
       proposedDate: ['', Validators.required],
       proposedStartTime: ['', Validators.required],
@@ -34,8 +36,9 @@ export class DemandeFormComponent implements OnInit {
       status: ['', Validators.required],
       adminComments: [''],
       submissionDate: ['', Validators.required],
-      conferencierId: [this.authService. getConferencierId()]
+      conferencierId: [null, Validators.required]
     });
+
   }
 
   ngOnInit(): void {
@@ -49,7 +52,11 @@ export class DemandeFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.demandeForm.value); // Log the form values to check if conferencierId is set
+    this.demandeForm.patchValue({
+      conferencierId: this.conferencierId // Ensure conferencierId is assigned correctly
+    });
+
+    console.log('Form Values:', this.demandeForm.value); // Debugging form values
 
     if (this.isEditing) {
       const demandeId = +this.route.snapshot.paramMap.get('id')!;
@@ -62,6 +69,7 @@ export class DemandeFormComponent implements OnInit {
       });
     }
   }
+
 
 
 }

@@ -1,7 +1,17 @@
-<p>conferencier-dashboard works!</p>
-<app-demande-form></app-demande-form>
-<div *ngIf="authService.isLoggedIn()">
-  <button (click)="showDemandeForm()">Create Demande</button>
+<p>Conferencier Dashboard works!</p>
+
+<div *ngIf="conferencierData; else loading">
+  <h1>Welcome, {{ conferencierData.nom }}</h1>
+  <p>Conferencier ID: {{ conferencierData.id }}</p>
+  <button (click)="showDemandeForm()">Create New Demande</button>
+
+  <div *ngIf="isFormVisible">
+    <app-demande-form [conferencierId]="conferencierData.id"></app-demande-form>
+    <button (click)="hideDemandeForm()">Cancel</button>
+  </div>
 </div>
 
-<app-demande-form *ngIf="isFormVisible"></app-demande-form>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+<app-demande-list></app-demande-list>

@@ -91,12 +91,19 @@
       <label for="adminComments"><i class="fas fa-comments"></i> Admin Comments:</label>
       <textarea id="adminComments" formControlName="adminComments"></textarea>
     </div>
+    <div class="form-group">
+      <label for="conferenceDescription"><i class="fas fa-info-circle"></i> Conference Description:</label>
+      <textarea id="conferenceDescription" formControlName="conferenceDescription" required></textarea>
+      <div *ngIf="demandeForm.get('conferenceDescription')?.invalid && (demandeForm.get('conferenceDescription')?.dirty || demandeForm.get('conferenceDescription')?.touched)">
+        <small *ngIf="demandeForm.get('conferenceDescription')?.errors?.['required']">Conference Description is required.</small>
+      </div>
+    </div>
 
     <div class="form-group">
       <label for="submissionDate"><i class="fas fa-calendar-day"></i> Submission Date:</label>
       <input id="submissionDate" type="date" formControlName="submissionDate" />
     </div>
-    <input type="number" formControlName="conferencierId" />
+
 
     <button type="submit" class="submit-btn">
       <i class="fas fa-{{ isEditing ? 'save' : 'plus' }}"></i>
