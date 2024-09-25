@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Conference Name</th>
+    <th>Conferencier</th>
+    <th>Date Debut</th>
+    <th>Date Fin</th>
+    <th>Subject</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let conference of conferences">
+    <td>{{ conference.id }}</td>
+    <td>{{ conference.conferenceName }}</td>
+    <td>{{ conference.conferencierName }}</td>
+    <td>{{ conference.dateDebut }}</td>
+    <td>{{ conference.dateFin }}</td>
+    <td>{{ conference.subject }}</td>
+  </tr>
+  </tbody>
+</table>

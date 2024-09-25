@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, numberAttribute, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemandeService } from '../../services/demande.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ export class DemandeFormComponent implements OnInit {
   demandeForm: FormGroup;
   isEditing = false;
   statuses = ['PENDING', 'ACCEPTED', 'REFUSED'];
-  @Input() conferencierId!: number;
+  @Input({transform: numberAttribute}) conferencierId!: number;
 
   constructor(
     private fb: FormBuilder,
@@ -47,6 +47,8 @@ export class DemandeFormComponent implements OnInit {
       this.isEditing = true;
       this.demandeService.getDemandeById(demandeId).subscribe(demande => {
         this.demandeForm.patchValue(demande);
+        this.demandeForm.get('conferencierId')?.setValue(this.conferencierId); // Set conferencierId from the input
+
       });
     }
   }

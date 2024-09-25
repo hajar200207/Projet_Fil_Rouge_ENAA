@@ -3,6 +3,7 @@
   <tr>
     <th>ID</th>
     <th>Title</th>
+    <th> id conferencierr</th>
     <th>Status</th>
     <th>Actions</th>
   </tr>
@@ -11,11 +12,13 @@
   <tr *ngFor="let demande of demandes">
     <td>{{ demande.id }}</td>
     <td>{{ demande.conferenceTitle }}</td>
+    <td>{{ demande.conferencierId }}</td>
     <td>{{ demande.status }}</td>
     <td>
       <button (click)="viewDetail(demande.id)" class="btn btn-primary">View</button>
       <button (click)="editDemande(demande.id)" class="btn btn-warning">Edit</button>
       <button (click)="deleteDemande(demande.id)" class="btn btn-danger">Delete</button>
+      <button (click)="createConference(demande.conferencierId)">Créer Conférence</button>
     </td>
   </tr>
   </tbody>

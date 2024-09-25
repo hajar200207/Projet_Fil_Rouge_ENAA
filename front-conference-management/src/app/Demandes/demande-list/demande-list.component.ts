@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DemandeService } from '../../services/demande.service';
 import { Router } from '@angular/router';
-import {Demande} from "../../models/demande.model";
 
 @Component({
   selector: 'app-demande-list',
@@ -10,6 +9,7 @@ import {Demande} from "../../models/demande.model";
 })
 export class DemandeListComponent implements OnInit {
   demandes: any[] = [];
+  @Input() conferencierId!: number | null; // Ensure this is number or null
 
   constructor(private demandeService: DemandeService, private router: Router) {}
 
@@ -23,9 +23,13 @@ export class DemandeListComponent implements OnInit {
     });
   }
 
-  viewDetail(id: number): void {
-    this.router.navigate(['/demandes', id]);
+
+  createConference(conferencierId: number): void {
+    console.log('Navigating to create conference with conferencierId:', conferencierId);
+    this.router.navigate(['/create-conference'], { queryParams: { conferencierId } });
+
   }
+
 
   editDemande(id: number): void {
     this.router.navigate(['/demandes', id, 'edit']);
@@ -36,4 +40,9 @@ export class DemandeListComponent implements OnInit {
       this.loadDemandes(); // Reload the list after deletion
     });
   }
+  viewDetail(id: number): void {
+    this.router.navigate(['/demandes', id]); // Ensure you have a route set up for this
+  }
+
+
 }

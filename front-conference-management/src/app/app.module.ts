@@ -16,6 +16,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DemandeListComponent } from './Demandes/demande-list/demande-list.component';
 import { DemandeFormComponent } from './Demandes/demande-form/demande-form.component';
 import { DemandeDetailComponent } from './Demandes/demande-detail/demande-detail.component';
+import { CreateConferenceComponent } from './Conferences/create-conference/create-conference.component';
+import { ConferenceDetailsComponent } from './Conferences/conference-details/conference-details.component';
+import { LocauxManagementComponent } from './locaux/locaux-management/locaux-management.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { DemandeDetailComponent } from './Demandes/demande-detail/demande-detail
     ResetPasswordComponent,
     DemandeListComponent,
     DemandeDetailComponent,
-    DemandeFormComponent
+    DemandeFormComponent,
+    CreateConferenceComponent,
+    ConferenceDetailsComponent,
+    LocauxManagementComponent
   ],
   imports: [
     BrowserModule,

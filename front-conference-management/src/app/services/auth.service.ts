@@ -15,6 +15,8 @@ interface LoginResponse {
   token: string;
   role: string;
   conferencierId?: number;
+  commitOrganisationId?: number; // Add this line
+
 }
 
 @Injectable({
@@ -51,6 +53,8 @@ export class AuthService {
       tap((response: any) => {
         this.setToken(response.token);
         this.setConferencierId(response.conferencierId);
+        this.setCommitOrganisationId(response.commitOrganisationId); // Store commitOrganisationId
+
       })
     );
   }
@@ -66,7 +70,13 @@ export class AuthService {
     return localStorage.getItem('conferencierId');
   }
 
+  setCommitOrganisationId(commitOrganisationId: string): void { // Add this method
+    localStorage.setItem('commitOrganisationId', commitOrganisationId);
+  }
 
+  getCommitOrganisationId(): string | null { // Add this method
+    return localStorage.getItem('commitOrganisationId');
+  }
 
   setToken(token: string): void {
     localStorage.setItem('authToken', token);

@@ -1,0 +1,59 @@
+<p>locaux-management works!</p>
+<h2>Add New Locaux</h2>
+<form (ngSubmit)="addLocaux()">
+  <label for="type">Type:</label>
+  <select [(ngModel)]="newLocaux.type" name="type" required>
+    <option value="LOCO">LOCO</option>
+    <option value="HOTEL">HOTEL</option>
+    <option value="AMPHI">AMPHI</option>
+  </select>
+
+  <label for="adresse">Adresse:</label>
+  <input [(ngModel)]="newLocaux.adresse" name="adresse" required />
+
+  <input type="hidden" [(ngModel)]="newLocaux.commitOrganisationId" />
+
+  <button type="submit">Add Locaux</button>
+</form>
+
+<h2>List of Locaux</h2>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Adresse</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let locaux of locauxList">
+    <td>{{ locaux.id }}</td>
+    <td>{{ locaux.type }}</td>
+    <td>{{ locaux.adresse }}</td>
+    <td>
+      <button (click)="editLocauxDetails(locaux)">Edit</button>
+      <button (click)="deleteLocaux(locaux.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Edit Form -->
+<div *ngIf="editLocaux">
+  <h2>Edit Locaux</h2>
+  <form (ngSubmit)="updateLocaux()">
+    <label for="type">Type:</label>
+    <select [(ngModel)]="editLocaux.type" name="type" required>
+      <option value="LOCO">LOCO</option>
+      <option value="HOTEL">HOTEL</option>
+      <option value="AMPHI">AMPHI</option>
+    </select>
+
+    <label for="adresse">Adresse:</label>
+    <input [(ngModel)]="editLocaux.adresse" name="adresse" required />
+
+    <button type="submit">Update Locaux</button>
+    <button (click)="editLocaux = null">Cancel</button>
+  </form>
+</div>
