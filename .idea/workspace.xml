@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0ed578-e736-45c6-8cde-1b8fd55b304f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Projet_Fil_Rouge_ENAA.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/models/Conferencier.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ConferenceDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/Conference-Create-dto.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-detail.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-details-dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/Enum/conference-subject.enum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/models/locaux.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/conference.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/locaux.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ConferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ConferenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/LocauxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/LocauxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Conference.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Conference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Poster.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Poster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Slide.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Slide.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/PersonneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/PersonneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ConferenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ConferenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/conferencier-dashboard/conferencier-dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,34 +67,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.conference-management [clean].executor": "Run",
-    "Maven.conference-management [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ConferenceManagementApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hajar/Desktop/Projet_Fil_Rouge_ENAA",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "ts.external.directory.path": "C:\\Users\\Hajar\\Desktop\\Projet_Fil_Rouge_ENAA\\front-conference-management\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.conference-management [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.conference-management [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ConferenceManagementApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hajar/Desktop/Projet_Fil_Rouge_ENAA&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Hajar\\Desktop\\Projet_Fil_Rouge_ENAA\\front-conference-management\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.conferencemgmt.conference_management.model" />
@@ -118,7 +131,11 @@
       <workItem from="1724944236869" duration="19704000" />
       <workItem from="1725033896742" duration="38000" />
       <workItem from="1725033981322" duration="7652000" />
-      <workItem from="1726948961101" duration="13372000" />
+      <workItem from="1726948961101" duration="14196000" />
+      <workItem from="1727118491367" duration="988000" />
+      <workItem from="1727201209151" duration="1278000" />
+      <workItem from="1727204390213" duration="3610000" />
+      <workItem from="1727208604071" duration="14383000" />
     </task>
     <servers />
   </component>
