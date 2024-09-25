@@ -1,6 +1,7 @@
 package com.conferencemgmt.conference_management.model;
 
 import com.conferencemgmt.conference_management.Enum.ConferenceSubject;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,14 +34,17 @@ public class Conference {
     @Enumerated(EnumType.STRING)
     @Column(name = "subject")
     private ConferenceSubject subject;
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
     @ManyToOne
     @JoinColumn(name = "conferencier_id ")
     private Conferencier conferencier;
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
     @ManyToOne
     @JoinColumn(name = "locaux_id")
     private Locaux locaux;
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
     @ManyToMany
     @JoinTable(
@@ -49,6 +53,7 @@ public class Conference {
             inverseJoinColumns = @JoinColumn(name = "commitorganisation_id")
     )
     private Set<CommitOrganisation> commitOrganisations = new HashSet<>();
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
     @ManyToMany
     @JoinTable(
@@ -56,12 +61,16 @@ public class Conference {
             joinColumns = @JoinColumn(name = "conference_id"),
             inverseJoinColumns = @JoinColumn(name = "invite_id")
     )
+
     private Set<Invite> invites = new HashSet<>();
     @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
+
     @ManyToMany
     private Set<Slide> slides = new HashSet<>();
 
+    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
     @ManyToMany
     @JoinTable(

@@ -49,6 +49,7 @@ private JwtAuth jwtAuth;
                     response.put("token", token);
                     response.put("role", claims.get("role"));
                     response.put("conferencierId", claims.get("conferencierId")); // Make sure conferencierId is set in the claims
+                    response.put("commitOrganisationId", claims.get("commitOrganisationId")); // Add this line
 
                     return ResponseEntity.ok(response);
                 })

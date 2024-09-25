@@ -1,6 +1,7 @@
 package com.conferencemgmt.conference_management.model;
 
 import com.conferencemgmt.conference_management.Enum.DocumentType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,7 +34,7 @@ public class Slide {
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Conferencier author;
-
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "conference_id", referencedColumnName = "id")
     private Conference conference;

@@ -1,9 +1,6 @@
 package com.conferencemgmt.conference_management.controller;
 
-import com.conferencemgmt.conference_management.dto.ConferenceCreateDTO;
-import com.conferencemgmt.conference_management.dto.ConferenceDetailDTO;
-import com.conferencemgmt.conference_management.dto.ConferenceUpdateDTO;
-import com.conferencemgmt.conference_management.dto.ConferencecreategDTO;
+import com.conferencemgmt.conference_management.dto.*;
 import com.conferencemgmt.conference_management.model.Conference;
 import com.conferencemgmt.conference_management.model.Poster;
 import com.conferencemgmt.conference_management.model.Slide;
@@ -16,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/conferences")
 public class ConferenceController {
 
@@ -82,4 +80,15 @@ public class ConferenceController {
         List<Poster> posters = conferenceService.getPostersByConferenceId(id);
         return ResponseEntity.ok(posters);
     }
+    @GetMapping("/conference/{id}/details")
+    public ResponseEntity<ConferenceDetailsDTO> getConferenceDetail(@PathVariable Long id) {
+        ConferenceDetailsDTO conferenceDetailsDTO = conferenceService.getConferenceDetail(id);
+        return ResponseEntity.ok(conferenceDetailsDTO);
+    }
+    @GetMapping("/all-details")
+    public ResponseEntity<List<ConferenceDetailsDTO>> getAllConferenceDetails() {
+        List<ConferenceDetailsDTO> conferenceDetails = conferenceService.getAllConferenceDetails();
+        return ResponseEntity.ok(conferenceDetails);
+    }
+
 }

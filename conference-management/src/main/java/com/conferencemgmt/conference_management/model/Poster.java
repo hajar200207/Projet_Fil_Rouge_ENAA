@@ -1,5 +1,6 @@
 package com.conferencemgmt.conference_management.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +24,7 @@ public class Poster {
 
     @Column(name = "image_url")
     private String imageUrl;
-
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "conference_id", referencedColumnName = "id")
     private Conference conference;

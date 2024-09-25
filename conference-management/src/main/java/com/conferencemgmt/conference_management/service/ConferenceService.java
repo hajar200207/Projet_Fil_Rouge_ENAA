@@ -193,4 +193,37 @@ public class ConferenceService {
     public List<Poster> getPostersByConferenceId(Long id) {
         return conferenceRepository.findPostersByConferenceId(id);
     }
+    public ConferenceDetailsDTO getConferenceDetail(Long id) {
+        Conference conference = conferenceRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Conference not found"));
+
+        ConferenceDetailsDTO dto = new ConferenceDetailsDTO(
+                conference.getId(),
+                conference.getNom(),
+                conference.getConferencier().getNom(),
+                conference.getDateDebut(),
+                conference.getDateFin(),
+                conference.getSubject()
+        );
+
+        return dto;
+    }
+    public List<ConferenceDetailsDTO> getAllConferenceDetails() {
+        List<Conference> conferences = conferenceRepository.findAll();
+        return conferences.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private ConferenceDetailsDTO convertToDTO(Conference conference) {
+        return new ConferenceDetailsDTO(
+                conference.getId(),
+                conference.getNom(),
+                conference.getConferencier().getNom(),
+                conference.getDateDebut(),
+                conference.getDateFin(),
+                conference.getSubject()
+        );
+    }
+
 }
