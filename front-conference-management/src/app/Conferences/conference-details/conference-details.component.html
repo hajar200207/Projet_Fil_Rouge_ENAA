@@ -4,19 +4,24 @@
     <th>ID</th>
     <th>Conference Name</th>
     <th>Conferencier</th>
+    <TH>ConferencierID</TH>
     <th>Date Debut</th>
     <th>Date Fin</th>
     <th>Subject</th>
+    <th> action </th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let conference of conferences">
     <td>{{ conference.id }}</td>
     <td>{{ conference.conferenceName }}</td>
+    <td>{{ conference.conferencierid }}</td>
     <td>{{ conference.conferencierName }}</td>
     <td>{{ conference.dateDebut }}</td>
     <td>{{ conference.dateFin }}</td>
     <td>{{ conference.subject }}</td>
+    <td> <button (click)="navigateToAddProgramme(conference.conferencierid)">Add Programme</button>
+    </td>
   </tr>
   </tbody>
 </table>

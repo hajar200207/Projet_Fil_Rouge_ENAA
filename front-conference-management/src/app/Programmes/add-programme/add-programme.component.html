@@ -1,0 +1,24 @@
+<p>add-programme works!</p>
+<form [formGroup]="programmeForm" (ngSubmit)="onSubmit()">
+  <label for="titre">Title</label>
+  <input id="titre" formControlName="titre" type="text" />
+
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <label for="date">Date</label>
+  <input id="date" formControlName="date" type="date" />
+
+  <label for="heureDebut">Start Time</label>
+  <input id="heureDebut" formControlName="heureDebut" type="time" />
+
+  <label for="heureFin">End Time</label>
+  <input id="heureFin" formControlName="heureFin" type="time" />
+
+  <label for="salle">Room</label>
+  <input id="salle" formControlName="salle" type="text" />
+
+  <input type="number" formControlName="conferencierid" />
+
+  <button type="submit">Add Programme</button>
+</form>
