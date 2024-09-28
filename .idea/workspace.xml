@@ -5,35 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0ed578-e736-45c6-8cde-1b8fd55b304f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ConferenceDetailsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/Conference-Create-dto.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-detail.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-details-dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/Enum/conference-subject.enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/models/locaux.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/conference.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/locaux.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/models/programme.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/programme.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ConferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ConferenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/LocauxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/LocauxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/PersonneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Conference.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Conference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Poster.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Poster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Slide.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/model/Slide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/security/JwtAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ProgrammeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/controller/ProgrammeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ConferenceDetailsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ConferenceDetailsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ProgrammeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/dto/ProgrammeDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ConferenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ConferenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-form/demande-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Demandes/demande-list/demande-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/admin-dashboard/admin-dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ProgrammeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/src/main/java/com/conferencemgmt/conference_management/service/ProgrammeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Conferences/conference-details/conference-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Conferences/conference-details/conference-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/Conferences/conference-details/conference-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/Conferences/conference-details/conference-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-details-dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/DTO/conference-details-dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/commit-organisation-dashboard/commit-organisation-dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-conference-management/src/app/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +119,7 @@
       <workItem from="1727118491367" duration="988000" />
       <workItem from="1727201209151" duration="1278000" />
       <workItem from="1727204390213" duration="3610000" />
-      <workItem from="1727208604071" duration="14383000" />
+      <workItem from="1727208604071" duration="21376000" />
     </task>
     <servers />
   </component>
