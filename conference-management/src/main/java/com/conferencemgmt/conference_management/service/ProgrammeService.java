@@ -42,7 +42,7 @@ public class ProgrammeService {
                 .orElseThrow();
         programme.setCommitOrganisation(commitOrganisation);
 
-        Conferencier conferencier = conferencierRepository.findById(programmeDTO.getConferencierId())
+        Conferencier conferencier = conferencierRepository.findById(programmeDTO.getConferencierid())
                 .orElseThrow();
         programme.setConferencier(conferencier);
 
@@ -80,7 +80,7 @@ public class ProgrammeService {
                 .orElseThrow();
         programme.setCommitOrganisation(commitOrganisation);
 
-        Conferencier conferencier = conferencierRepository.findById(programmeDTO.getConferencierId())
+        Conferencier conferencier = conferencierRepository.findById(programmeDTO.getConferencierid())
                 .orElseThrow();
         programme.setConferencier(conferencier);
 
@@ -105,7 +105,8 @@ public class ProgrammeService {
         dto.setHeureFin(programme.getHeureFin());
         dto.setSalle(programme.getSalle());
         dto.setCommitOrganisationId(programme.getCommitOrganisation().getId());
-        dto.setConferencierId(programme.getConferencier().getId());
+        dto.setConferencierid(programme.getConferencier().getId());
+
         return dto;
     }
     public ProgrammeInfoDTO getProgrammeInfo(Long id) {

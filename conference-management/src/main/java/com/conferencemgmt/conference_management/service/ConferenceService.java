@@ -203,7 +203,8 @@ public class ConferenceService {
                 conference.getConferencier().getNom(),
                 conference.getDateDebut(),
                 conference.getDateFin(),
-                conference.getSubject()
+                conference.getSubject(),
+                conference.getConferencier().getId()
         );
 
         return dto;
@@ -222,7 +223,9 @@ public class ConferenceService {
                 conference.getConferencier().getNom(),
                 conference.getDateDebut(),
                 conference.getDateFin(),
-                conference.getSubject()
+                conference.getSubject(),
+                conference.getConferencier().getId()
+
         );
     }
 

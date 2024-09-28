@@ -125,6 +125,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/programmes")
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class ProgrammeController {
 
     @Autowired

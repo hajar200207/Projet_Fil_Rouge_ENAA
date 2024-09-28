@@ -19,4 +19,6 @@ public class ConferenceDetailsDTO {
     private LocalDate dateDebut;
     private LocalDate dateFin;
     private ConferenceSubject subject;
+    private Long conferencierid;
+
 }
