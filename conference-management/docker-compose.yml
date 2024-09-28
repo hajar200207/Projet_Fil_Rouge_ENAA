@@ -1,0 +1,81 @@
+#version: "3.8"
+#
+#services:
+#  conference-management:
+#    image: hajar/conference-management:latest
+#    ports:
+#      - "9092:8080"
+#    depends_on:
+#      - mysqldb
+#    networks:
+#      - conference-network
+#
+#  mysqldb:
+#    image: "mysql:latest"
+#    environment:
+#      MYSQL_DATABASE: conference-management
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysqldb:/var/lib/mysql
+#    networks:
+#      - conference-network
+#
+#volumes:
+#  mysqldb:
+#
+#networks:
+#  conference-network:
+#    driver: bridge
+version: "3.8"
+
+services:
+#  conference-management:
+##    image: hajar/conference-management:latest
+#    build: .
+#    ports:
+#      - "9092:8080"
+#    depends_on:
+#      - mysqldb
+#    networks:
+#      - conference-network
+
+#  mysqldb:
+#    image: "mysql:latest"
+#    environment:
+#      MYSQL_DATABASE: conference-management
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysqldb:/var/lib/mysql
+#    networks:
+#      - conference-network
+
+  sonarqube:
+    container_name: sonarqube
+    restart: always
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    networks:
+      - conference-network
+
+  jenkins:
+    container_name: jenkins
+    restart: always
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sonarqube
+    networks:
+      - conference-network
+
+volumes:
+  mysqldb:
+
+networks:
+  conference-network:
+    driver: bridge
