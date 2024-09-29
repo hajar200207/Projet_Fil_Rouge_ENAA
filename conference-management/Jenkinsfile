@@ -38,19 +38,21 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image & Push') {
-            steps {
-                dir('conference-management') {
-                    def imageName = "hajar/conference-management:${TAG_VERSION}"
-                    sh "docker build -t ${imageName} ."
+       stage('Build Docker Image & Push') {
+           steps {
+               dir('conference-management') {
+                   script {
+                       def imageName = "hajar/conference-management:${env.TAG_VERSION}"
+                       sh "docker build -t ${imageName} ."
 
-                    withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
-                        sh "docker push ${imageName}"
-                    }
-                }
-            }
-        }
+                       withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                           sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
+                           sh "docker push ${imageName}"
+                       }
+                   }
+               }
+           }
+       }
     }
 
     post {
