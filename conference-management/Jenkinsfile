@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        SONARQUBE_CREDENTIALS = 'squ_d93b34ca0f9d60ee783d2f4df696782060815072'
+        SONARQUBE_CREDENTIALS = 'sqp_811b85ba76ed9531562897a1e8691cba3ed12266'
         TAG_VERSION = "${env.BUILD_NUMBER}"
     }
 
