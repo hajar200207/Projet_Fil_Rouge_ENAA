@@ -65,10 +65,10 @@ pipeline {
 
     post {
         always {
-            script {
+            node {
                 bat 'docker logout'
+                cleanWs()
             }
-            cleanWs()
         }
     }
 }
