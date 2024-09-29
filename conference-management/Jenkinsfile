@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'linux' }
+    agent { label 'any' }
 
     tools {
         maven 'mvn'
@@ -21,7 +21,7 @@ pipeline {
         stage('Build & Test conference-management') {
             steps {
                 dir('conference-management') {
-                    sh 'mvn clean validate'
+                    bat 'mvn clean validate'
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
                     def scannerHome = tool 'SonarQubeScanner'
 
                     dir('conference-management') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target/classes"
+                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target/classes"
                     }
                 }
             }
@@ -43,11 +43,11 @@ pipeline {
                dir('conference-management') {
                    script {
                        def imageName = "hajar/conference-management:${env.TAG_VERSION}"
-                       sh "docker build -t ${imageName} ."
+                       bat "docker build -t ${imageName} ."
 
                        withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                           sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
-                           sh "docker push ${imageName}"
+                           bat "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
+                           bat "docker push ${imageName}"
                        }
                    }
                }
@@ -57,7 +57,7 @@ pipeline {
 
     post {
         always {
-            sh 'docker logout'
+            bat 'docker logout'
             cleanWs()
         }
     }
