@@ -1,72 +1,17 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'mvn'
-    }
-
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        SONARQUBE_CREDENTIALS = credentials('squ_d93b34ca0f9d60ee783d2f4df696782060815072')
-        TAG_VERSION = "${env.BUILD_NUMBER}"
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Test') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Build & Test conference-management') {
-            steps {
-                dir('conference-management') {
-                    bat 'mvn clean validate'
-                }
-            }
-        }
-
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def scannerHome = tool 'SonarQubeScanner'
-                    withSonarQubeEnv('SonarQube') {
-                        dir('conference-management') {
-                            bat "\"${scannerHome}\\bin\\sonar-scanner\" -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.java.binaries=target\\classes"
-                        }
-                    }
-                }
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                dir('conference-management') {
-                    script {
-                        def imageName = "hajar/conference-management:${env.TAG_VERSION}"
-                        bat "docker build -t ${imageName} ."
-                    }
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    def imageName = "hajar/conference-management:${env.TAG_VERSION}"
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        bat "echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin"
-                        bat "docker push ${imageName}"
-                    }
-                }
+                bat 'echo Hello, World!'
             }
         }
     }
 
     post {
         always {
-            bat 'docker logout'
-            cleanWs()
+            bat 'echo Cleanup'
         }
     }
 }
