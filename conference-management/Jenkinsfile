@@ -1,13 +1,13 @@
 pipeline {
-    agent { label 'any' }
+    agent any
 
     tools {
         maven 'mvn'
     }
 
     environment {
-        DOCKERHUB_CREDENTIALS = 'dockerhub'
-        SONARQUBE_CREDENTIALS = 'squ_d93b34ca0f9d60ee783d2f4df696782060815072'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+        SONARQUBE_CREDENTIALS = credentials('squ_d93b34ca0f9d60ee783d2f4df696782060815072')
         TAG_VERSION = "${env.BUILD_NUMBER}"
     }
 
@@ -30,29 +30,25 @@ pipeline {
             steps {
                 script {
                     def scannerHome = tool 'SonarQubeScanner'
-
                     dir('conference-management') {
-                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target/classes"
+                        bat "\"${scannerHome}\\bin\\sonar-scanner\" -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target\\classes"
                     }
                 }
             }
         }
 
-       stage('Build Docker Image & Push') {
-           steps {
-               dir('conference-management') {
-                   script {
-                       def imageName = "hajar/conference-management:${env.TAG_VERSION}"
-                       bat "docker build -t ${imageName} ."
-
-                       withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                           bat "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
-                           bat "docker push ${imageName}"
-                       }
-                   }
-               }
-           }
-       }
+        stage('Build Docker Image & Push') {
+            steps {
+                dir('conference-management') {
+                    script {
+                        def imageName = "hajar/conference-management:${env.TAG_VERSION}"
+                        bat "docker build -t ${imageName} ."
+                        bat "echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin"
+                        bat "docker push ${imageName}"
+                    }
+                }
+            }
+        }
     }
 
     post {
