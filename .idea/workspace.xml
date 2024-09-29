@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0ed578-e736-45c6-8cde-1b8fd55b304f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="eb0ed578-e736-45c6-8cde-1b8fd55b304f" name="Changes" comment="chnges in the jenkns file 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference-management/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/conference-management/Jenkinsfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,11 +112,42 @@
       <workItem from="1727204390213" duration="3610000" />
       <workItem from="1727208604071" duration="21376000" />
       <workItem from="1727614878727" duration="833000" />
-      <workItem from="1727615912690" duration="6319000" />
+      <workItem from="1727615912690" duration="7109000" />
     </task>
+    <task id="LOCAL-00001" summary="chnges in the jenkns file">
+      <option name="closed" value="true" />
+      <created>1727622919310</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727622919310</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chnges in the jenkns file V2">
+      <option name="closed" value="true" />
+      <created>1727623087478</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727623087495</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chnges in the jenkns file 3">
+      <option name="closed" value="true" />
+      <created>1727623243114</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727623243114</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chnges in the jenkns file" />
+    <MESSAGE value="chnges in the jenkns file V2" />
+    <MESSAGE value="chnges in the jenkns file 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="chnges in the jenkns file 3" />
   </component>
 </project>

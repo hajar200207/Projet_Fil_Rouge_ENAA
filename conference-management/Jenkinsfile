@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/hajar200207/Projet_Fil_Rouge_ENAA.git'
+                checkout scm
             }
         }
 
@@ -30,20 +30,32 @@ pipeline {
             steps {
                 script {
                     def scannerHome = tool 'SonarQubeScanner'
-                    dir('conference-management') {
-                        bat "\"${scannerHome}\\bin\\sonar-scanner\" -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target\\classes"
+                    withSonarQubeEnv('SonarQube') {
+                        dir('conference-management') {
+                            bat "\"${scannerHome}\\bin\\sonar-scanner\" -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.java.binaries=target\\classes"
+                        }
                     }
                 }
             }
         }
 
-        stage('Build Docker Image & Push') {
+        stage('Build Docker Image') {
             steps {
                 dir('conference-management') {
                     script {
                         def imageName = "hajar/conference-management:${env.TAG_VERSION}"
                         bat "docker build -t ${imageName} ."
-                        bat "echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin"
+                    }
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    def imageName = "hajar/conference-management:${env.TAG_VERSION}"
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        bat "echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin"
                         bat "docker push ${imageName}"
                     }
                 }
