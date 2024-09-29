@@ -1,0 +1,62 @@
+pipeline {
+    agent { label 'linux' }
+
+    tools {
+        maven 'mvn'
+    }
+
+    environment {
+        DOCKERHUB_CREDENTIALS = 'dockerhub'
+        SONARQUBE_CREDENTIALS = 'squ_d93b34ca0f9d60ee783d2f4df696782060815072'
+        TAG_VERSION = "${env.BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/hajar200207/Projet_Fil_Rouge_ENAA.git'
+            }
+        }
+
+        stage('Build & Test conference-management') {
+            steps {
+                dir('conference-management') {
+                    sh 'mvn clean validate'
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarQubeScanner'
+
+                    dir('conference-management') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.token=${SONARQUBE_CREDENTIALS} -Dsonar.java.binaries=target/classes"
+                    }
+                }
+            }
+        }
+
+        stage('Build Docker Image & Push') {
+            steps {
+                dir('conference-management') {
+                    def imageName = "hajar/conference-management:${TAG_VERSION}"
+                    sh "docker build -t ${imageName} ."
+
+                    withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
+                        sh "docker push ${imageName}"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker logout'
+            cleanWs()
+        }
+    }
+}
