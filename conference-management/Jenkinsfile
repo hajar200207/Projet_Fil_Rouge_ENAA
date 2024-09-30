@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        SONARQUBE_CREDENTIALS = 'sqp_811b85ba76ed9531562897a1e8691cba3ed12266'
+        SONARQUBE_CREDENTIALS = credentials('sonarqube-token')  // Create this in Jenkins
         TAG_VERSION = "${env.BUILD_NUMBER}"
     }
 
@@ -18,22 +18,19 @@ pipeline {
             }
         }
 
-        stage('Build & Test conference-management') {
+        stage('Build & Test') {
             steps {
                 dir('conference-management') {
-                    bat 'mvn clean validate'
+                    bat 'mvn clean verify'  // Run tests as well
                 }
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
-                script {
-                    def scannerHome = tool 'SonarQubeScanner'
-                    withSonarQubeEnv('SonarQube') {
-                        dir('conference-management') {
-                            bat "\"${scannerHome}\\bin\\sonar-scanner\" -Dsonar.projectKey=conference-management -Dsonar.sources=. -Dsonar.java.binaries=target\\classes"
-                        }
+                withSonarQubeEnv('SonarQube') {
+                    dir('conference-management') {
+                        bat "mvn sonar:sonar -Dsonar.projectKey=conference-management"
                     }
                 }
             }
@@ -63,5 +60,10 @@ pipeline {
         }
     }
 
-
+    post {
+        always {
+            bat 'docker logout'
+            cleanWs()
+        }
+    }
 }
