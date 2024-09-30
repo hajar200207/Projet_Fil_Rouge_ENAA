@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'mvn'
-        sonarqubeScanner 'SonarQubeScanner'  // Ajout de l'outil SonarQube Scanner
+        SonarScanner 'SonarQubeScanner'  // Correction: utilisation de 'SonarScanner' au lieu de 'sonarqubeScanner'
     }
 
     environment {
