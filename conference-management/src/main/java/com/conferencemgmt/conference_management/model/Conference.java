@@ -65,20 +65,10 @@ public class Conference {
     private Set<Invite> invites = new HashSet<>();
     @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
-    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
-    @ManyToMany
-    private Set<Slide> slides = new HashSet<>();
 
-    @JsonIgnore  // Ignore cette relation lors de la sérialisation JSON pour éviter l'imbrication
 
-    @ManyToMany
-    @JoinTable(
-            name = "conference_posters",
-            joinColumns = @JoinColumn(name = "conference_id"),
-            inverseJoinColumns = @JoinColumn(name = "poster_id")
-    )
-    private Set<Poster> posters = new HashSet<>();
+
 
 
 

@@ -18,20 +18,17 @@ import java.util.List;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "id")
 
-@JsonIgnoreProperties({"programmes", "locauxList", "posters"})
+@JsonIgnoreProperties({"locauxList"})
 @Table(name = "CommitOrganisation")
 public class CommitOrganisation extends Personne {
 
     private String fonction;
 
-    @OneToMany(mappedBy = "commitOrganisation")
-    private List<Programme> programmes;
 
     @OneToMany(mappedBy = "commitOrganisation")
     private List<Locaux> locauxList;
 
-    @OneToMany(mappedBy = "commitOrganisation")
-    private List<Poster> posters;
+
 
     public CommitOrganisation() {
         this.setRole(Role.ROLE_COMMIT_ORGANISATION);

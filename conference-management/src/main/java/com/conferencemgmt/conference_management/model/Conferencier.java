@@ -26,11 +26,7 @@ public class Conferencier extends Personne {
     private String specialite;
     private String biographie;
 
-    @OneToMany(mappedBy = "author")
-    private List<Slide> slides;
 
-    @OneToMany(mappedBy = "conferencier")
-    private List<Programme> programmes;
 
     public Conferencier() {
         this.setRole(Role.ROLE_CONFERENCIER);

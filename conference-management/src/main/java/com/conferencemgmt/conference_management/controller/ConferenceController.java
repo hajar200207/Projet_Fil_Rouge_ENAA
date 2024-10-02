@@ -2,8 +2,6 @@ package com.conferencemgmt.conference_management.controller;
 
 import com.conferencemgmt.conference_management.dto.*;
 import com.conferencemgmt.conference_management.model.Conference;
-import com.conferencemgmt.conference_management.model.Poster;
-import com.conferencemgmt.conference_management.model.Slide;
 import com.conferencemgmt.conference_management.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,17 +67,7 @@ public class ConferenceController {
         ConferenceDetailDTO conferenceDetailDTO = conferenceService.getConferenceDetails(id);
         return ResponseEntity.ok(conferenceDetailDTO);
     }
-    @GetMapping("/{id}/slides")
-    public ResponseEntity<List<Slide>> getSlidesByConferenceId(@PathVariable Long id) {
-        List<Slide> slides = conferenceService.getSlidesByConferenceId(id);
-        return ResponseEntity.ok(slides);
-    }
 
-    @GetMapping("/{id}/posters")
-    public ResponseEntity<List<Poster>> getPostersByConferenceId(@PathVariable Long id) {
-        List<Poster> posters = conferenceService.getPostersByConferenceId(id);
-        return ResponseEntity.ok(posters);
-    }
     @GetMapping("/conference/{id}/details")
     public ResponseEntity<ConferenceDetailsDTO> getConferenceDetail(@PathVariable Long id) {
         ConferenceDetailsDTO conferenceDetailsDTO = conferenceService.getConferenceDetail(id);

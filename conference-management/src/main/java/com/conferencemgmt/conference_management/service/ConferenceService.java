@@ -31,11 +31,6 @@ public class ConferenceService {
     @Autowired
     private InviteRepository inviteRepository;
 
-    @Autowired
-    private SlideRepository slideRepository;
-
-    @Autowired
-    private PosterRepository posterRepository;
 
 
     public List<Conference> getAllConferences() {
@@ -134,18 +129,7 @@ public class ConferenceService {
         conference.setInvites(invites);
 
         // Fetch and set Slides
-        Set<Slide> slides = conferenceDTO.getSlideIds().stream()
-                .map(id -> slideRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Slide not found with id: " + id)))
-                .collect(Collectors.toSet());
-        conference.setSlides(slides);
 
-        // Fetch and set Posters
-        Set<Poster> posters = conferenceDTO.getPosterIds().stream()
-                .map(id -> posterRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Poster not found with id: " + id)))
-                .collect(Collectors.toSet());
-        conference.setPosters(posters);
 
         return conferenceRepository.save(conference);
     }
@@ -156,11 +140,6 @@ public class ConferenceService {
     public ConferenceDetailDTO getConferenceDetails(Long conferenceId) {
         Conference conference = conferenceRepository.findById(conferenceId)
                 .orElseThrow();
-
-        List<SlideDTO> slides = slideRepository.findByConferenceId(conferenceId)
-                .stream()
-                .map(slide -> new SlideDTO(slide.getId(), slide.getTitle(), slide.getAbstractContent()))
-                .collect(Collectors.toList());
 
         List<InviteDTO> invites = inviteRepository.findByConferencesId(conferenceId)
                 .stream()
@@ -180,19 +159,12 @@ public class ConferenceService {
         conferenceDetailDTO.setSubject(conference.getSubject());
         conferenceDetailDTO.setConferencierId(conference.getConferencier().getId());
         conferenceDetailDTO.setLocauxId(conference.getLocaux().getId());
-        conferenceDetailDTO.setSlides(slides);
         conferenceDetailDTO.setInvites(invites);
         // Set other details
         return conferenceDetailDTO;
     }
 
-    public List<Slide> getSlidesByConferenceId(Long id) {
-        return conferenceRepository.findSlidesByConferenceId(id);
-    }
 
-    public List<Poster> getPostersByConferenceId(Long id) {
-        return conferenceRepository.findPostersByConferenceId(id);
-    }
     public ConferenceDetailsDTO getConferenceDetail(Long id) {
         Conference conference = conferenceRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Conference not found"));

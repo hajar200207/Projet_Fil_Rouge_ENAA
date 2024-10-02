@@ -23,9 +23,7 @@ public class ConferenceDetailDTO {
     private ConferenceSubject subject;
     private Long conferencierId;
     private Long locauxId;
-    private List<SlideDTO> slides;
     private List<InviteDTO> invites;
-    private List<PosterDTO> posters;
     private List<CommitOrganisationDTO> commitOrganisations;
     private Number numberInvite;
 }
