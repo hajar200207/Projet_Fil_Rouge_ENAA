@@ -37,7 +37,6 @@ export class CreateConferenceComponent implements OnInit {
     this.conferenceService.createConference(this.conferenceCreateDTO).subscribe(
       response => {
         console.log('Conference created successfully', response);
-        // Optionally reset the form or redirect after success
       },
       error => {
         console.error('Error creating conference', error);
