@@ -41,7 +41,6 @@ private ConferencierRepository conferencierRepository;
         Demande demande = demandeRepository.findById(id)
                 .orElseThrow();
 
-        // Update the fields with the new details
         demande.setConferenceSubject(demandeDetails.getConferenceSubject());
         demande.setConferenceTitle(demandeDetails.getConferenceTitle());
         demande.setConferenceDescription(demandeDetails.getConferenceDescription());
@@ -56,10 +55,8 @@ private ConferencierRepository conferencierRepository;
         demande.setSubmissionDate(demandeDetails.getSubmissionDate());
         demande.setNumber_invite(demandeDetails.getNumber_invite());
 
-        // Save the updated Demande
         Demande updatedDemande = demandeRepository.save(demande);
 
-        // Convert to DTO
         DemandeDTO updatedDemandeDTO = new DemandeDTO(
                 updatedDemande.getId(),
                 updatedDemande.getConferencier().getId(),
@@ -87,7 +84,6 @@ private ConferencierRepository conferencierRepository;
     }
 
 
-    // add methode get by id conferencier
     public List<DemandeConferencierDTO> getDemandesByConferencierId(Long conferencierId) {
         Conferencier conferencier = conferencierRepository.findById(conferencierId)
                 .orElseThrow();
@@ -111,7 +107,6 @@ private ConferencierRepository conferencierRepository;
         dto.setAdminComments(demande.getAdminComments());
         dto.setSubmissionDate(demande.getSubmissionDate());
 
-        // Set Conferencier details
         dto.setConferencierId(demande.getConferencier().getId());
         dto.setConferencierNom(demande.getConferencier().getNom());
         dto.setConferencierPrenom(demande.getConferencier().getPrenom());

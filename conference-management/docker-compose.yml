@@ -1,26 +1,78 @@
+#version: "3.8"
+#
+#services:
+#  conference-management:
+#    build: .
+#    ports:
+#      - "9092:8080"
+#    depends_on:
+#      - mysqldb
+#    networks:
+#      - conference-network
+#
+#  mysqldb:
+#    image: "mysql:latest"
+#    environment:
+#      MYSQL_DATABASE: conference-management
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysqldb:/var/lib/mysql
+#    networks:
+#      - conference-network
+#
+#  sonarqube:
+#    container_name: sonarqube
+#    restart: always
+#    image: sonarqube
+#    ports:
+#      - "9000:9000"
+#    networks:
+#      - conference-network
+#
+#
+#
+#volumes:
+#  mysqldb:
+#
+#networks:
+#  conference-network:
+#    driver: bridge
 version: "3.8"
 
 services:
   conference-management:
     build: .
     ports:
-      - "9092:8080"
+      - "8080:8080"
     depends_on:
-      - mysqldb
+      mysqldb:
+        condition: service_healthy
     networks:
       - conference-network
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/conference-management?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
 
   mysqldb:
-    image: "mysql:latest"
+    image: "mysql:8.0"
     environment:
       MYSQL_DATABASE: conference-management
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_HOST: "%"
     ports:
       - "3307:3306"
     volumes:
       - mysqldb:/var/lib/mysql
     networks:
       - conference-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+      interval: 5s
 
   sonarqube:
     container_name: sonarqube
@@ -30,8 +82,6 @@ services:
       - "9000:9000"
     networks:
       - conference-network
-
-
 
 volumes:
   mysqldb:
