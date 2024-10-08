@@ -23,11 +23,12 @@ public class JwtAuth {
         return Jwts.builder()
                 .setSubject(personne.getUsername())
                 .claim("role", personne.getRole().name())
-                // Ensure this line is present
-                .claim("conferencierId", personne.getId()) // Add this line to include conferencierId
+
+                .claim("conferencierId", personne.getId())
                 .claim("commitOrganisationId", personne.getId())
+                .claim("inviteId", personne.getId())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiration
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }

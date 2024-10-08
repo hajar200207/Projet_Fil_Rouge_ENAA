@@ -45,7 +45,7 @@ services:
   conference-management:
     build: .
     ports:
-      - "8080:8080"
+      - "8082:8082"
     depends_on:
       mysqldb:
         condition: service_healthy

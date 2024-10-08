@@ -2,6 +2,7 @@ package com.conferencemgmt.conference_management.controller;
 
 
 import com.conferencemgmt.conference_management.model.Conferencier;
+import com.conferencemgmt.conference_management.model.Invite;
 import com.conferencemgmt.conference_management.model.Personne;
 import com.conferencemgmt.conference_management.model.ResetPasswordRequest;
 import com.conferencemgmt.conference_management.security.JwtAuth;
@@ -48,8 +49,9 @@ private JwtAuth jwtAuth;
                     Map<String, Object> response = new HashMap<>();
                     response.put("token", token);
                     response.put("role", claims.get("role"));
-                    response.put("conferencierId", claims.get("conferencierId")); // Make sure conferencierId is set in the claims
-                    response.put("commitOrganisationId", claims.get("commitOrganisationId")); // Add this line
+                    response.put("conferencierId", claims.get("conferencierId"));
+                    response.put("commitOrganisationId", claims.get("commitOrganisationId"));
+                    response.put("invite", claims.get("inviteId"));
 
                     return ResponseEntity.ok(response);
                 })
@@ -112,4 +114,11 @@ private JwtAuth jwtAuth;
         return conferencier.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+    @GetMapping("/invites/{inviteId}")
+    public ResponseEntity<Invite> getInviteById(@PathVariable Long inviteId) {
+        Optional<Invite> invite = personneService.getInviteById(inviteId);
+        return invite.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }
