@@ -7,7 +7,7 @@ import {LocauxDTO} from "../models/locaux.model";
     providedIn: 'root',
 })
 export class LocauxService {
-    private apiUrl = 'http://localhost:8080/api/locaux';
+    private apiUrl = 'http://localhost:8082/api/locaux';
 
     constructor(private http: HttpClient) {}
 

@@ -1,8 +1,8 @@
-// src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
 import {Conferencier} from "../models/Conferencier.model";
+import {Invite} from "../models/invite.model";
 
 interface RegisterPayload {
   nom: string;
@@ -15,7 +15,8 @@ interface LoginResponse {
   token: string;
   role: string;
   conferencierId?: number;
-  commitOrganisationId?: number; // Add this line
+  commitOrganisationId?: number;
+  inviteId?: number;// Add this line
 
 }
 
@@ -24,7 +25,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/api/personnes';
+  private baseUrl = 'http://localhost:8082/api/personnes';
 
   constructor(private http: HttpClient) { }
 
@@ -53,12 +54,14 @@ export class AuthService {
       tap((response: any) => {
         this.setToken(response.token);
         this.setConferencierId(response.conferencierId);
-        this.setCommitOrganisationId(response.commitOrganisationId); // Store commitOrganisationId
-
+        this.setCommitOrganisationId(response.commitOrganisationId);
+        this.setInviteId(response.inviteId);
+        if (response.inviteId) {
+          this.setInviteId(response.inviteId.toString());
+        }
       })
     );
   }
-
 
 
 
@@ -69,6 +72,7 @@ export class AuthService {
   getConferencierId(): string | null {
     return localStorage.getItem('conferencierId');
   }
+
 
   setCommitOrganisationId(commitOrganisationId: string): void { // Add this method
     localStorage.setItem('commitOrganisationId', commitOrganisationId);
@@ -117,6 +121,19 @@ export class AuthService {
 
   getConferencierDetails(conferencierId: number): Observable<Conferencier> {
     return this.http.get<Conferencier>(`${this.baseUrl}/conferenciers/${conferencierId}`);
+  }
+
+
+  getInviteId(): string | null {
+    return localStorage.getItem('inviteId');
+  }
+
+  setInviteId(inviteId: string): void {
+    localStorage.setItem('inviteId', inviteId);
+  }
+
+  getInviteDetails(inviteId: number): Observable<Invite> {
+    return this.http.get<Invite>(`${this.baseUrl}/invites/${inviteId}`);
   }
 
 

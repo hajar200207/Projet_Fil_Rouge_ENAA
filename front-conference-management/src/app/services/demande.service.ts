@@ -1,4 +1,3 @@
-// demande.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,7 +8,7 @@ import {DemandeConferencierDTO} from "../DTO/demande-conferencier-dto.model";
   providedIn: 'root'
 })
 export class DemandeService {
-  private baseUrl = 'http://localhost:8080/api/demandes';
+  private baseUrl = 'http://localhost:8082/api/demandes';
 
   constructor(private http: HttpClient) {}
 

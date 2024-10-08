@@ -9,7 +9,7 @@ import {ConferenceDetailsDTO} from "../DTO/conference-details-dto";
   providedIn: 'root'
 })
 export class ConferenceService {
-  private apiUrl = 'http://localhost:8080/api/conferences';
+  private apiUrl = 'http://localhost:8082/api/conferences';
 
   constructor(private http: HttpClient) {}
 

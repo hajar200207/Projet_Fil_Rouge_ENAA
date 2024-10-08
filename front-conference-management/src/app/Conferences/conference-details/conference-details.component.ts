@@ -18,9 +18,8 @@ export class ConferenceDetailsComponent implements OnInit {
       this.conferences = data;
     });
   }
-
-  navigateToAddProgramme(conferencierid: string) {
-    this.router.navigate(['/add-programme'], { queryParams: {  conferencierid } });
+  openReservationForm(conferenceId: number): void {
+    this.router.navigate(['/create-reservation'], { queryParams: { conferenceId } });
   }
 
 }

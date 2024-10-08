@@ -20,8 +20,8 @@
     <td>{{ conference.dateDebut }}</td>
     <td>{{ conference.dateFin }}</td>
     <td>{{ conference.subject }}</td>
-    <td> <button (click)="navigateToAddProgramme(conference.conferencierid)">Add Programme</button>
-    </td>
+    <button (click)="openReservationForm(conference.id)" class="btn btn-primary">Reservation</button>
+
   </tr>
   </tbody>
 </table>

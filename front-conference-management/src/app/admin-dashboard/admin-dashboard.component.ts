@@ -7,7 +7,7 @@ import {AuthService} from "../services/auth.service";
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  conferencierId: number | null = null; // Ensure this is number or null
+  conferencierId: number | null = null;
 
   constructor(private authService: AuthService) {}
 
@@ -17,7 +17,7 @@ export class AdminDashboardComponent implements OnInit {
 
   private getConferencierId(): void {
     const id = this.authService.getConferencierId();
-    this.conferencierId = id ? Number(id) : null; // Ensure id is converted to a number
+    this.conferencierId = id ? Number(id) : null;
     if (this.conferencierId === null) {
       console.warn('Conferencier ID not found.');
     }
