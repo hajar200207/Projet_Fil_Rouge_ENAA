@@ -28,6 +28,7 @@ import { ContactComponent } from './conference-website/contact/contact.component
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -52,18 +53,19 @@ import {MatInputModule} from "@angular/material/input";
     TeamComponent,
     ContactComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatInputModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

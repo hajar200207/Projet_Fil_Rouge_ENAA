@@ -9,6 +9,9 @@ import { RegisterCommitOrganisationComponent } from './register-commit-organisat
 import { RegisterConferencierComponent } from './register-conferencier/register-conferencier.component';
 import { RegisterCommitScientifiqueComponent } from './register-commit-scientifique/register-commit-scientifique.component';
 import { LoginComponent } from './login/login.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,  // Add this line
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class AuthModule { }

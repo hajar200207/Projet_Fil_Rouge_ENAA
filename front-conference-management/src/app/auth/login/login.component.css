@@ -1,0 +1,105 @@
+/* Basic page styling */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-box {
+  background-color: #fed812;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Rotating logo animation */
+.logo-animation {
+  width: 100px;
+  height: 100px;
+  animation: rotate-logo 6s infinite linear;
+  margin: 0 auto 2rem;
+}
+
+@keyframes rotate-logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form title and subtitle */
+.login-title {
+  font-size: 24px;
+  color: #5932EA;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #888888;
+  margin-bottom: 1.5rem;
+}
+
+/* Form styling */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: #5932EA;
+  color: white;
+  padding: 0.75rem;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #fed812;
+}
+
+/* Forgot password link */
+.forgot-password-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #5932EA;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+/* Input focus animation */
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #5932EA !important;
+}
+
+.mat-icon {
+  color: #5932EA;
+}
+input {
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #5932EA;
+  box-shadow: 0 0 10px rgba(89, 50, 234, 0.5);
+}
