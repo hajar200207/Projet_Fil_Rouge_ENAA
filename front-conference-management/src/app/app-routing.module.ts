@@ -18,11 +18,19 @@ import { DemandeDetailComponent } from './Demandes/demande-detail/demande-detail
 import { CreateConferenceComponent } from './Conferences/create-conference/create-conference.component';
 import { ConferenceDetailsComponent } from './Conferences/conference-details/conference-details.component';
 import { LocauxManagementComponent } from './locaux/locaux-management/locaux-management.component';
-import { CreateReservationComponent } from './reservations/create-reservation/create-reservation.component'; // Added new reservation component
+import { CreateReservationComponent } from './reservations/create-reservation/create-reservation.component';
+import { HomeComponent } from "./conference-website/home/home.component";
+import { AboutComponent } from "./conference-website/about/about.component";
+import { TeamComponent } from "./conference-website/team/team.component";
+import { ContactComponent } from "./conference-website/contact/contact.component";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
   { path: 'conferencier-dashboard', component: ConferencierDashboardComponent, canActivate: [ConferencierGuard] },
   { path: 'commit-organisation-dashboard', component: CommitOrganisationDashboardComponent, canActivate: [CommiteOrganisationGuard] },
@@ -35,10 +43,10 @@ const routes: Routes = [
   { path: 'demandes/:id', component: DemandeDetailComponent },
   { path: 'demandes/:id/edit', component: DemandeFormComponent },
   { path: 'create-conference', component: CreateConferenceComponent },
-  { path: 'conference-details/:id', component: ConferenceDetailsComponent },  // Pass conference ID
+  { path: 'conference-details/:id', component: ConferenceDetailsComponent },
   { path: 'create-reservation', component: CreateReservationComponent },
   { path: 'locaux', component: LocauxManagementComponent },
-  { path: '**', redirectTo: '/auth/login' }
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({

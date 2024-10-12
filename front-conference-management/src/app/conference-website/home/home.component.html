@@ -1,0 +1,146 @@
+<header>
+  <nav>
+    <div class="logo">Online Event Scientific</div>
+    <ul>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+      <li><a routerLink="/submit">Submit</a></li>
+      <li><a routerLink="/team">Our Team</a></li>
+      <li><a routerLink="/organizers">Organizers</a></li>
+      <li><a routerLink="/events">Events</a></li>
+      <li><a routerLink="/speakers">Speakers</a></li>
+      <li><a routerLink="/scientific-committee">Scientific Committee</a></li>
+      <li><a routerLink="/reservation">Reservation</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <a routerLink="/auth/register" class="cta-button">Sign up</a>
+      <a routerLink="/auth/login" class="cta-button">Login</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" [@fadeAnimation]="currentSlide">
+    <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide">
+      <img [src]="slide.image" [alt]="slide.alt">
+      <div class="slide-content">
+        <h1>WELCOME TO ONLINE EVENT SCIENTIFIC</h1>
+        <p>{{ slide.caption }}</p>
+      </div>
+    </div>
+  </section>
+  <section class="create-event-section">
+    <div class="create-event-card">
+      <h2>Make your own Event</h2>
+      <p>Create and manage your scientific events with ease</p>
+      <button class="create-event-btn">Create Event</button>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <h2>About Online EVENT SCIENTIFIQUE</h2>
+      <div class="about-flex">
+        <img src="https://i.pinimg.com/736x/83/e9/a2/83e9a21268b7410a363538e24800a6a6.jpg" alt="Scientific Event" class="about-image">
+        <div class="about-text">
+          <p>Our Conference has hosted over 5,000+ Online Scientific Events since its inception in 2006. We've welcomed more than 100,000 attendees across various scientific disciplines, fostering collaboration and knowledge exchange in the global scientific community.</p>
+          <p><strong>Over 5000+ scientific events</strong></p>
+          <p><strong>100,000+ scientists worldwide</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team-section">
+    <h2>Our Team</h2>
+    <div class="team-members">
+      <div class="team-member">
+<!--        <img src="https://ibb.co/wM2sLZM" alt="Team Member 1">-->
+        <h3>simplonline</h3>
+        <p>Position</p>
+      </div>
+      <div class="team-member">
+<!--        <img src="path-to-image" alt="Team Member 2">-->
+        <h3>HAJAR OUADI</h3>
+        <p>ETUDIENT SIMPLONE</p>
+      </div>
+      <div class="team-member">
+<!--        <img src="path-to-image" alt="Team Member 3">-->
+        <h3>M.IBRAHIM</h3>
+        <p>ENCADREMET</p>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-left contact-info mb-4 mb-md-0">
+          <h4 class="font-weight-bold">Contact</h4>
+          <p>Feel free to contact us!</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Morocco,Rabat <br>
+            <i class="fas fa-phone"></i> Phone: +212 00000000 <br>
+            <i class="fas fa-envelope"></i> Email: EVENT@mail.com
+          </p>
+        </div>
+
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Name" class="form-control" required>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field class="w-100">
+                <input matInput type="email" placeholder="Email" class="form-control" required>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field class="w-100">
+                <textarea matInput placeholder="Message" rows="4" class="form-control" required></textarea>
+              </mat-form-field>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top py-5">
+      <div class="container text-center">
+        <h3 class="text-uppercase">Online Event Scientific</h3>
+        <p>Subscribe to stay updated</p>
+        <form class="form-inline justify-content-center">
+          <div class="form-group mb-2">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <button type="submit" class="btn btn-primary ml-2 mb-2">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-middle py-4">
+      <div class="container text-center">
+        <a class="nav-link d-inline-block px-3" href="#">Home</a>
+        <a class="nav-link d-inline-block px-3" href="#">About</a>
+        <a class="nav-link d-inline-block px-3" href="#">Services</a>
+        <a class="nav-link d-inline-block px-3" href="#">Get in touch</a>
+        <a class="nav-link d-inline-block px-3" href="#">FAQs</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+      <div class="container text-center">
+        <a href="#"><i class="fab fa-facebook-square fa-lg mx-2"></i></a>
+        <a href="#"><i class="fab fa-twitter-square fa-lg mx-2"></i></a>
+        <a href="#"><i class="fab fa-instagram-square fa-lg mx-2"></i></a>
+        <a href="#"><i class="fab fa-linkedin-square fa-lg mx-2"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+
+</main>

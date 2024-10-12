@@ -21,6 +21,13 @@ import { ConferenceDetailsComponent } from './Conferences/conference-details/con
 import { LocauxManagementComponent } from './locaux/locaux-management/locaux-management.component';
 import { CreateReservationComponent } from './reservations/create-reservation/create-reservation.component';
 import { ListReservationsComponent } from './reservations/list-reservations/list-reservations.component';
+import { HomeComponent } from './conference-website/home/home.component';
+import { AboutComponent } from './conference-website/about/about.component';
+import { TeamComponent } from './conference-website/team/team.component';
+import { ContactComponent } from './conference-website/contact/contact.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -40,16 +47,23 @@ import { ListReservationsComponent } from './reservations/list-reservations/list
     LocauxManagementComponent,
     CreateReservationComponent,
     ListReservationsComponent,
+    HomeComponent,
+    AboutComponent,
+    TeamComponent,
+    ContactComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatInputModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
