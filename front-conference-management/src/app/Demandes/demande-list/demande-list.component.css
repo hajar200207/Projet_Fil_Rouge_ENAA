@@ -1,0 +1,24 @@
+.table-primary {
+  background-color: #f1f1f1;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+.badge {
+  padding: 0.5em;
+  font-size: 0.85em;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}

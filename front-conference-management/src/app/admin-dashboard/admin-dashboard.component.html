@@ -1,5 +1,65 @@
-<p>admin-dashboard works!</p>
-<p>admin-dashboard works!</p>
-<p>admin-dashboard works!</p>
-<p>admin-dashboard works!</p>
-<app-demande-list [conferencierId]="conferencierId"></app-demande-list>
+<div class="dashboard-container d-flex">
+  <!-- Sidebar -->
+  <mat-sidenav-container class="sidenav">
+    <mat-sidenav mode="side" opened>
+      <mat-toolbar color="primary" class="sidebar-header">
+        <span>Dashboard</span>
+      </mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard" class="active-link">Dashboard</a>
+        <a [routerLink]="['/demandes']" class="nav-link">Demandes</a>
+        <a mat-list-item routerLink="/customers">Customers</a>
+        <a mat-list-item routerLink="/events">Events</a>
+        <a mat-list-item routerLink="/subjects">Subjects</a>
+        <a mat-list-item routerLink="/reservations">Reservations</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+
+  <!-- Main Content -->
+  <div class="content-container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <h3>Hello Admin 👋</h3>
+      <mat-form-field appearance="outline" class="search-bar">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search" />
+      </mat-form-field>
+    </header>
+
+    <!-- Totals Section -->
+    <div class="totals-section row mt-4">
+      <div class="col-md-4">
+        <mat-card class="summary-card total-customers">
+          <mat-card-content>
+            <h4>Total Customers</h4>
+            <h2>5,423</h2>
+            <p><span class="text-success">19%</span> this month</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+        <mat-card class="summary-card total-members">
+          <mat-card-content>
+            <h4>Members</h4>
+            <h2>1,893</h2>
+            <p><span class="text-danger">↓1%</span> this month</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+        <mat-card class="summary-card active-now">
+          <mat-card-content>
+            <h4>Active Now</h4>
+            <h2>189</h2>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="table-section mt-5">
+      <h4>Liste des Demandes</h4>
+      <app-demande-list></app-demande-list>
+    </div>
+  </div>
+</div>

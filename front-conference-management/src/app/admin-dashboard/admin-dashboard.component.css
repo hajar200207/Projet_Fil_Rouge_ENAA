@@ -1,0 +1,72 @@
+/* Layout */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidenav {
+  background-color: #fed812;
+  width: 250px;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  width: 250px;
+}
+
+/* Totals Section */
+.totals-section .summary-card {
+  padding: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.total-customers {
+  background-color: #5932EA;
+}
+
+.total-members {
+  background-color: #29b6f6;
+}
+
+.active-now {
+  background-color: #66bb6a;
+}
+
+/* Table */
+.table-section h4 {
+  margin-bottom: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-primary {
+  background-color: #fed812;
+  color: #5932EA;
+}
+
+.badge {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.badge.bg-success {
+  background-color: #66bb6a;
+}
+
+.badge.bg-danger {
+  background-color: #ef5350;
+}
