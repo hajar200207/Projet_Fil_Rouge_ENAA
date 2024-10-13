@@ -21,7 +21,7 @@ export class RegisterCommitOrganisationComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       motDePasse: ['', Validators.required],
       fonction: ['', Validators.required],
-      type: ['commitOrganisation']  // Default value for the hidden type field
+      type: ['commitOrganisation']
     });
   }
 
