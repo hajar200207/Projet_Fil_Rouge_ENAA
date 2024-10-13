@@ -1,31 +1,71 @@
-<p>register-commit-organisation works!</p>
-<p>register-commit-organisation works!</p>
 
-<h2>Inscription Commit Organisation</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="nom">Nom:</label>
-    <input id="nom" formControlName="nom" required>
-  </div>
-  <div>
-    <label for="prenom">Prénom:</label>
-    <input id="prenom" formControlName="prenom" required>
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" type="email" required>
-  </div>
-  <div>
-    <label for="motDePasse">Mot de Passe:</label>
-    <input id="motDePasse" formControlName="motDePasse" type="password" required>
-  </div>
-  <div>
-    <label for="fonction">Fonction:</label>
-    <input id="fonction" formControlName="fonction" required>
-  </div>
+<!--<h2>Inscription Commit Organisation</h2>-->
+<!--<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">-->
+<!--  <div>-->
+<!--    <label for="nom">Nom:</label>-->
+<!--    <input id="nom" formControlName="nom" required>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="prenom">Prénom:</label>-->
+<!--    <input id="prenom" formControlName="prenom" required>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="email">Email:</label>-->
+<!--    <input id="email" formControlName="email" type="email" required>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="motDePasse">Mot de Passe:</label>-->
+<!--    <input id="motDePasse" formControlName="motDePasse" type="password" required>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="fonction">Fonction:</label>-->
+<!--    <input id="fonction" formControlName="fonction" required>-->
+<!--  </div>-->
 
-  <!-- Hidden field for the type attribute -->
-  <input type="hidden" formControlName="type" value="commitOrganisation">
+<!--  <input type="hidden" formControlName="type" value="commitOrganisation">-->
 
-  <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
-</form>
+<!--  <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>-->
+<!--</form>-->
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="registration-form card shadow p-4" [style.background-color]="'#5932EA'">
+    <div class="text-center">
+      <img src="assets/images/Online event scintefic.png" alt="Online Event Scientific" class="logo mb-3">
+      <h2 class="text-white">Inscription Commit Organisation</h2>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mt-4">
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Entrez votre nom" formControlName="nom" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Prénom</mat-label>
+        <input matInput placeholder="Entrez votre prénom" formControlName="prenom" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Entrez votre email" formControlName="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Mot de Passe</mat-label>
+        <input matInput type="password" placeholder="Entrez votre mot de passe" formControlName="motDePasse" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Fonction</mat-label>
+        <input matInput placeholder="Entrez votre fonction" formControlName="fonction" required>
+      </mat-form-field>
+
+      <!-- Hidden field for type -->
+      <input type="hidden" formControlName="type" value="commitOrganisation">
+
+      <!-- Submit Button with hover animation -->
+      <button mat-raised-button color="accent" class="w-100 submit-button" [disabled]="registerForm.invalid">
+        S'inscrire
+      </button>
+    </form>
+  </div>
+</div>

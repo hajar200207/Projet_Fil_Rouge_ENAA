@@ -1,0 +1,48 @@
+/* General Form Styles */
+.container {
+  min-height: 100vh;
+}
+
+.registration-form {
+  max-width: 500px;
+  background-color: #5932EA;
+  border-radius: 10px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #FED812;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  background-color: #FED812 !important;
+  color: #5932EA;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #f0d70a !important;
+  color: #fff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

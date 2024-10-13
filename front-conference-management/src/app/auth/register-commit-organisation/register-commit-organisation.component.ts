@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,7 +12,7 @@ import {AuthService} from "../../services/auth.service";
 export class RegisterCommitOrganisationComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -29,9 +30,12 @@ export class RegisterCommitOrganisationComponent implements OnInit {
       this.authService.registerCommitOrganisation(this.registerForm.value).subscribe(
         response => {
           console.log('Registration successful', response);
+          this.router.navigate(['/auth/login']);
+
         },
         error => {
           console.error('Registration failed', error);
+          this.router.navigate(['/auth/login']);
         }
       );
     }
