@@ -1,4 +1,3 @@
-/* Basic page styling */
 .login-page {
   display: flex;
   justify-content: center;
@@ -17,7 +16,6 @@
   width: 100%;
 }
 
-/* Rotating logo animation */
 .logo-animation {
   width: 100px;
   height: 100px;
@@ -34,7 +32,6 @@
   }
 }
 
-/* Form title and subtitle */
 .login-title {
   font-size: 24px;
   color: #5932EA;
@@ -48,7 +45,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Form styling */
+
 .login-form {
   width: 100%;
 }
@@ -75,7 +72,6 @@
   background-color: #fed812;
 }
 
-/* Forgot password link */
 .forgot-password-link {
   display: inline-block;
   margin-top: 1rem;
@@ -87,7 +83,6 @@
   text-decoration: underline;
 }
 
-/* Input focus animation */
 .mat-form-field.mat-focused .mat-form-field-label {
   color: #5932EA !important;
 }
