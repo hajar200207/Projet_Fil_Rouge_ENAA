@@ -41,7 +41,7 @@ export class DemandeListComponent implements OnInit {
     });
   }
   viewDetail(id: number): void {
-    this.router.navigate(['/demandes', id]); 
+    this.router.navigate(['/demandes', id]);
   }
 
 
