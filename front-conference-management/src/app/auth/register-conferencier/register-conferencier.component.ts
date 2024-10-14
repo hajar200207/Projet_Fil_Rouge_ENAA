@@ -19,7 +19,7 @@ export class RegisterConferencierComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       motDePasse: ['', Validators.required],
       specialite: ['', Validators.required],
-      type: ['conferencier'] 
+      type: ['conferencier']
     });
   }
 

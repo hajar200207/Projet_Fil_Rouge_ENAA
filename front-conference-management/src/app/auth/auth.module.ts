@@ -25,7 +25,7 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,  // Add this line
+    HttpClientModule,
     AuthRoutingModule,
     MatInputModule,
     MatIconModule,
