@@ -20,5 +20,5 @@ public class ConferenceDTO {
     private ConferenceSubject subject;
 
     private Long locauxId;
-    private Long conferencierId;  
+    private Long conferencierId;
 }
