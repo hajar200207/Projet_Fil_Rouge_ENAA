@@ -19,7 +19,6 @@ public class ConferenceDTO {
     private Number number_invite;
     private ConferenceSubject subject;
 
-    // Relations
-    private Long locauxId;  // ID du local où se tient la conférence
-    private Long conferencierId;  // ID du conférencier
+    private Long locauxId;
+    private Long conferencierId;  
 }
