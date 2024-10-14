@@ -7,43 +7,42 @@
     <input type="text" id="nom" [(ngModel)]="conferenceCreateDTO.nom" name="nom" class="form-control" required>
   </div>
 
-  <!-- Description -->
   <div class="form-group">
     <label for="description">Description</label>
     <textarea id="description" [(ngModel)]="conferenceCreateDTO.description" name="description" class="form-control" required></textarea>
   </div>
 
-  <!-- Thème -->
+
   <div class="form-group">
     <label for="theme">Thème</label>
     <input type="text" id="theme" [(ngModel)]="conferenceCreateDTO.theme" name="theme" class="form-control" required>
   </div>
 
-  <!-- URL de l'image -->
+
   <div class="form-group">
     <label for="imageUrl">URL de l'image</label>
     <input type="url" id="imageUrl" [(ngModel)]="conferenceCreateDTO.imageUrl" name="imageUrl" class="form-control">
   </div>
 
-  <!-- Date de début -->
+
   <div class="form-group">
     <label for="dateDebut">Date de début</label>
     <input type="date" id="dateDebut" [(ngModel)]="conferenceCreateDTO.dateDebut" name="dateDebut" class="form-control" required>
   </div>
 
-  <!-- Date de fin -->
+
   <div class="form-group">
     <label for="dateFin">Date de fin</label>
     <input type="date" id="dateFin" [(ngModel)]="conferenceCreateDTO.dateFin" name="dateFin" class="form-control" required>
   </div>
 
-  <!-- Nombre d'invités -->
+
   <div class="form-group">
     <label for="number_invite">Nombre d'invités</label>
     <input type="number" id="number_invite" [(ngModel)]="conferenceCreateDTO.number_invite" name="number_invite" class="form-control" required>
   </div>
 
-  <!-- Sujet de la conférence -->
+
   <div class="form-group">
     <label for="subject">Sujet de la conférence :</label>
     <select id="subject" [(ngModel)]="conferenceCreateDTO.subject" name="subject" class="form-control" required>
@@ -51,15 +50,15 @@
     </select>
   </div>
 
-  <!-- Locaux Id (pour sélectionner l'emplacement) -->
+
   <div class="form-group">
     <label for="locauxId">ID du lieu</label>
     <input type="number" id="locauxId" [(ngModel)]="conferenceCreateDTO.locauxId" name="locauxId" class="form-control" required>
   </div>
 
-  <!-- Champ caché pour conferencierId -->
+
   <input type="number" [(ngModel)]="conferenceCreateDTO.conferencierId" name="conferencierId" >
 
-  <!-- Bouton pour soumettre le formulaire -->
+
   <button type="submit" class="btn btn-primary">Créer Conférence</button>
 </form>
