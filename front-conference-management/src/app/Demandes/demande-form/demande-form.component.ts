@@ -25,7 +25,7 @@ export class DemandeFormComponent implements OnInit {
     this.demandeForm = this.fb.group({
       conferenceTitle: ['', Validators.required],
       conferenceSubject: ['', Validators.required],
-      conferenceDescription: ['', Validators.required], // Add this line
+      conferenceDescription: ['', Validators.required],
       number_invite: [0, Validators.required],
       proposedDate: ['', Validators.required],
       proposedStartTime: ['', Validators.required],
@@ -55,10 +55,10 @@ export class DemandeFormComponent implements OnInit {
 
   onSubmit(): void {
     this.demandeForm.patchValue({
-      conferencierId: this.conferencierId // Ensure conferencierId is assigned correctly
+      conferencierId: this.conferencierId
     });
 
-    console.log('Form Values:', this.demandeForm.value); // Debugging form values
+    console.log('Form Values:', this.demandeForm.value);
 
     if (this.isEditing) {
       const demandeId = +this.route.snapshot.paramMap.get('id')!;

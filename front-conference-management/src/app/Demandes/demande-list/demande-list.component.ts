@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DemandeListComponent implements OnInit {
   demandes: any[] = [];
-  @Input() conferencierId!: number | null; // Ensure this is number or null
+  @Input() conferencierId!: number | null;
 
   constructor(private demandeService: DemandeService, private router: Router) {}
 
@@ -41,7 +41,7 @@ export class DemandeListComponent implements OnInit {
     });
   }
   viewDetail(id: number): void {
-    this.router.navigate(['/demandes', id]); // Ensure you have a route set up for this
+    this.router.navigate(['/demandes', id]); 
   }
 
 
