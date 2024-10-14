@@ -1,4 +1,4 @@
-/* home.component.css */
+
 :host {
   display: block;
   font-family: 'Arial', sans-serif;
@@ -137,7 +137,6 @@ nav ul li a:hover {
   }
 }
 
-/* Create Event Section */
 .create-event-section {
   background-color: #FED812;
   padding: 3rem 2rem;
@@ -246,7 +245,7 @@ nav ul li a:hover {
   }
 }
 
-/* Additional Sections (if needed) */
+
 .services-section,
 .speakers-section,
 .schedule-section,
@@ -256,14 +255,14 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
-/* Footer */
+
 footer {
   background-color: #5932EA;
   color: white;
   text-align: center;
   padding: 2rem;
 }
-/* Team Section */
+
 .team-section {
   padding: 4rem 2rem;
   background-color: #5932EA;
@@ -299,13 +298,13 @@ footer {
 }
 
 .contact-section {
-  background-color: #ffffff; /* White background */
-  color: #000000; /* Black text */
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .contact-info h4 {
   font-weight: bold;
-  color: #5932EA; /* Purple for the headings */
+  color: #5932EA;
 }
 
 .contact-info p {
@@ -314,7 +313,7 @@ footer {
 }
 
 .contact-info i {
-  color: #5932EA; /* Icons in purple */
+  color: #5932EA;
   margin-right: 10px;
 }
 
@@ -323,18 +322,18 @@ footer {
 }
 
 .btn-primary {
-  background-color: #5932EA; /* Purple button */
+  background-color: #5932EA;
   border-color: #5932EA;
 }
 
 .btn-primary:hover {
-  background-color: #4A29C5; /* Slightly darker on hover */
+  background-color: #4A29C5;
   border-color: #4A29C5;
 }
 
 .footer {
-  background-color: #fed812; /* Yellow color */
-  color: #5932EA; /* Purple color */
+  background-color: #fed812;
+  color: #5932EA; 
 }
 
 .footer h3 {
