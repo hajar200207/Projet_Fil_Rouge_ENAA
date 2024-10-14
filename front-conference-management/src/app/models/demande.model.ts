@@ -4,11 +4,11 @@ export class Demande {
   id: number;
   conferencierId: number;
   numberInvite: number;
-  conferenceSubject: string;  // Assuming ConferenceSubject is a string. You can create an enum if needed.
+  conferenceSubject: string;
   conferenceTitle: string;
   conferenceDescription: string;
-  proposedDate: string;  // Use string for dates to handle ISO format
-  proposedStartTime: string;  // Use string for times to handle HH:mm format
+  proposedDate: string;
+  proposedStartTime: string;
   proposedEndTime: string;
   location: string;
   durationInMinutes: number;

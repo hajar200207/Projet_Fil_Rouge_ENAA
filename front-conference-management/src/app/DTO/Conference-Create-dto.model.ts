@@ -9,5 +9,5 @@ export class ConferenceCreateDTO {
   number_invite!: number;
   subject!: string;
   conferencierId!: number;
-  locauxId!: number;         
+  locauxId!: number;
 }

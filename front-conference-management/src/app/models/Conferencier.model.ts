@@ -8,7 +8,7 @@ export interface Conferencier {
   motDePasse: string;
   specialite: string;
   biographie: string;
-  demandes: Demande[];  // Assuming 'Demande' is another model for demand requests
-//  slides: Slide[];      // Assuming 'Slide' is another model for presentations or files
- // programmes: Programme[]; // Assuming 'Programme' is another model for schedules or programs
+  demandes: Demande[];
+//  slides: Slide[];
+ // programmes: Programme[];
 }

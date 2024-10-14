@@ -1,21 +1,21 @@
-// demande-conferencier-dto.model.ts
+
 export interface DemandeConferencierDTO {
   demandeId: number;
   number_invite: number;
   conferenceSubject: string;
   conferenceTitle: string;
   conferenceDescription: string;
-  proposedDate: string; // or Date type
-  proposedStartTime: string; // or Time type
-  proposedEndTime: string; // or Time type
+  proposedDate: string;
+  proposedStartTime: string;
+  proposedEndTime: string;
   location: string;
   durationInMinutes: number;
   expectedAttendees: number;
   status: string;
   adminComments?: string;
-  submissionDate: string; // or Date type
+  submissionDate: string;
 
-  // Conferencier Details
+
   conferencierId: number;
   conferencierNom: string;
   conferencierPrenom: string;
