@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/conferencier-dashboard']);
         break;
       case 'ROLE_COMMIT_ORGANISATION':
-        this.router.navigate(['/commit-organisation-dashboard']); // Consistent naming
+        this.router.navigate(['/commit-organisation-dashboard']);
         break;
       case 'ROLE_COMMIT_SCIENTIFIQUE':
-        this.router.navigate(['/commit-scientifique-dashboard']); // Consistent naming
+        this.router.navigate(['/commit-scientifique-dashboard']); 
         break;
       case 'ROLE_INVITE':
         this.router.navigate(['/invite-dashboard']);
