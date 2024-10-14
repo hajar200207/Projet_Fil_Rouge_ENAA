@@ -19,7 +19,7 @@ export class RegisterCommitScientifiqueComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       motDePasse: ['', Validators.required],
       domaineExpertise: ['', Validators.required],
-      type: ['commitScientifique']  // Default value for the hidden type field
+      type: ['commitScientifique']
     });
   }
 
