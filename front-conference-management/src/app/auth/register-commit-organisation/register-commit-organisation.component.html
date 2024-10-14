@@ -59,10 +59,9 @@
         <input matInput placeholder="Entrez votre fonction" formControlName="fonction" required>
       </mat-form-field>
 
-      <!-- Hidden field for type -->
       <input type="hidden" formControlName="type" value="commitOrganisation">
 
-      <!-- Submit Button with hover animation -->
+
       <button mat-raised-button color="accent" class="w-100 submit-button" [disabled]="registerForm.invalid">
         S'inscrire
       </button>
